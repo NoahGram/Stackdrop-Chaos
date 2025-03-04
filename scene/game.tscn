@@ -1,0 +1,135 @@
+[gd_scene load_steps=30 format=3 uid="uid://bchfsjsuqu7n2"]
+
+[ext_resource type="Texture2D" uid="uid://doaancugts6q3" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_fow1e"]
+[ext_resource type="Script" path="res://script/spawner.gd" id="1_yc6rf"]
+[ext_resource type="Texture2D" uid="uid://cp7iavt0du63y" path="res://assets/tetrominoes/360_F_327223167_6s3RXZaysJMMi0AI54z3I4ojBEhhfTdc.jpg" id="4_6375p"]
+[ext_resource type="PackedScene" uid="uid://5bol8401006m" path="res://scene/blocks/tetris/block_O.tscn" id="5_nr5d2"]
+[ext_resource type="PackedScene" uid="uid://668cy1knov60" path="res://scene/blocks/weights/weight_5_kg.tscn" id="9_s16hg"]
+[ext_resource type="PackedScene" uid="uid://dev6u7gk1dm46" path="res://scene/blocks/weights/weight_10_kg.tscn" id="10_8p1a8"]
+[ext_resource type="PackedScene" uid="uid://djdh4vk4iv5ye" path="res://scene/blocks/weights/weight_50_kg.tscn" id="11_ydxyp"]
+[ext_resource type="PackedScene" uid="uid://pa2ia46xtxse" path="res://scene/blocks/balls/blue_ball.tscn" id="12_1ttvv"]
+[ext_resource type="PackedScene" uid="uid://c1ykhqp51lxgt" path="res://scene/blocks/balls/green_ball.tscn" id="13_40ypq"]
+[ext_resource type="PackedScene" uid="uid://b4yugqkfgalx5" path="res://scene/blocks/balls/purple_ball.tscn" id="14_0asg5"]
+[ext_resource type="PackedScene" uid="uid://b6aqfunmnnool" path="res://scene/blocks/balls/red_ball.tscn" id="15_rdtf8"]
+[ext_resource type="PackedScene" uid="uid://dwye5cjargu1o" path="res://scene/blocks/balls/snow_ball.tscn" id="16_5fr6i"]
+[ext_resource type="PackedScene" uid="uid://ddaxtnpubvqc2" path="res://scene/blocks/balls/yellow_ball.tscn" id="17_8m4w6"]
+[ext_resource type="PackedScene" uid="uid://okhedxy532rv" path="res://scene/blocks/morph/morpho_block.tscn" id="18_b285g"]
+[ext_resource type="Script" path="res://script/camera.gd" id="18_h4cgm"]
+[ext_resource type="PackedScene" uid="uid://c3uvisy2w6in7" path="res://scene/blocks/gravity_orb.tscn" id="19_ewu32"]
+[ext_resource type="PackedScene" uid="uid://b6plg601lmnyg" path="res://scene/blocks/gear.tscn" id="19_ljq83"]
+[ext_resource type="PackedScene" uid="uid://b1kgajyrk11uf" path="res://scene/blocks/acid/acid_block.tscn" id="19_xoebr"]
+[ext_resource type="PackedScene" uid="uid://dhs7wkvaaqsmq" path="res://scene/blocks/slime/slime_block.tscn" id="20_c6t5r"]
+[ext_resource type="Texture2D" uid="uid://dsdo6h01v0vbh" path="res://assets/platform/sand-platform.png" id="21_v8k2j"]
+[ext_resource type="PackedScene" uid="uid://rjwjsihth6d8" path="res://scene/deathzone.tscn" id="22_r7kgp"]
+[ext_resource type="Texture2D" uid="uid://8gqreqlskbfj" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" id="25_b5mwo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a34vg"]
+size = Vector2(20, 103)
+
+[sub_resource type="Gradient" id="Gradient_0ppkm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.021978, 0.382353, 0.740196, 1)
+colors = PackedColorArray(0, 1, 1, 1, 0.88278, 0.932245, 0.986934, 1, 0, 1, 1, 1, 0.878704, 0.953414, 0.987534, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_msfl3"]
+gradient = SubResource("Gradient_0ppkm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qsa7r"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1, 1)
+gravity = Vector3(20, 98, 0)
+scale_min = 1.5
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_msfl3")
+turbulence_enabled = true
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.05
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rpw28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueqyi"]
+size = Vector2(1023, 107)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bdj4o"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Spawner" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(962, 101)
+script = ExtResource("1_yc6rf")
+tetris_scenes = Array[PackedScene]([ExtResource("5_nr5d2")])
+weight_scenes = Array[PackedScene]([ExtResource("9_s16hg"), ExtResource("10_8p1a8"), ExtResource("11_ydxyp")])
+ball_scenes = Array[PackedScene]([ExtResource("12_1ttvv"), ExtResource("13_40ypq"), ExtResource("14_0asg5"), ExtResource("15_rdtf8"), ExtResource("16_5fr6i"), ExtResource("17_8m4w6")])
+unique_scenes = Array[PackedScene]([ExtResource("19_xoebr"), ExtResource("20_c6t5r"), ExtResource("19_ljq83"), ExtResource("19_ewu32"), ExtResource("18_b285g")])
+
+[node name="LandingDetector" type="Area2D" parent="Spawner"]
+position = Vector2(40, 208)
+rotation = -3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/LandingDetector"]
+position = Vector2(-0.000183105, -18.5)
+scale = Vector2(124.68, 1)
+shape = SubResource("RectangleShape2D_a34vg")
+one_way_collision_margin = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/LandingDetector"]
+visible = false
+position = Vector2(-0.000244141, -78)
+scale = Vector2(124.68, 1)
+texture = ExtResource("4_6375p")
+
+[node name="Camera" type="Camera2D" parent="Spawner"]
+position = Vector2(0, 439)
+position_smoothing_enabled = true
+script = ExtResource("18_h4cgm")
+
+[node name="KindaSnow" type="GPUParticles2D" parent="Spawner/Camera"]
+position = Vector2(0, -540)
+scale = Vector2(-1.06404, 1.5217)
+amount = 600
+process_material = SubResource("ParticleProcessMaterial_qsa7r")
+lifetime = 15.0
+preprocess = 15.0
+speed_scale = 1.5
+fixed_fps = 60
+
+[node name="Background" type="ParallaxBackground" parent="Spawner/Camera"]
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="Spawner/Camera/Background"]
+
+[node name="Mountains" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+position = Vector2(960.5, 540)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("1_fow1e")
+
+[node name="Skybox" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+z_index = -1
+position = Vector2(962, 0)
+scale = Vector2(5.0026, 60.9595)
+texture = ExtResource("25_b5mwo")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(1002, 1001)
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_rpw28")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(0, 20)
+scale = Vector2(8, 2)
+texture = ExtResource("21_v8k2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-0.499939, -18.5)
+shape = SubResource("RectangleShape2D_ueqyi")
+
+[node name="Deathzone" parent="." instance=ExtResource("22_r7kgp")]
+position = Vector2(1002, 1076)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+shape = SubResource("WorldBoundaryShape2D_bdj4o")
+
+[connection signal="body_entered" from="Spawner/LandingDetector" to="Spawner/Camera" method="_on_camera_increase"]
+[connection signal="body_exited" from="Spawner/LandingDetector" to="Spawner/Camera" method="_on_camera_decrease"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bchfsjsuqu7n2"]
+
+[ext_resource type="PackedScene" uid="uid://5bol8401006m" path="res://scene/block/block_O.tscn" id="1_jawsa"]
+[ext_resource type="Script" path="res://script/spawner.gd" id="1_vlyew"]
+[ext_resource type="PackedScene" uid="uid://c62roamahiqnn" path="res://scene/block/block_L.tscn" id="1_x8fpl"]
+[ext_resource type="PackedScene" uid="uid://fpfnjb3vbqtb" path="res://scene/block/block_I.tscn" id="2_dlqo6"]
+[ext_resource type="PackedScene" uid="uid://syiyagy80jrk" path="res://scene/block/block_T.tscn" id="2_pp7ku"]
+[ext_resource type="PackedScene" uid="uid://ipf2srxqeh71" path="res://scene/block/block_S.tscn" id="4_ft6up"]
+[ext_resource type="PackedScene" uid="uid://dw16r2a7geflt" path="res://scene/block/block_J.tscn" id="6_xuy3l"]
+[ext_resource type="PackedScene" uid="uid://lduh8ola7uwr" path="res://scene/block/block_Z.tscn" id="7_31tgj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(64, 1112)
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground"]
+color = Color(0.396078, 0.615686, 1, 1)
+polygon = PackedVector2Array(-64, -64, 896, -64, 1856, -64, 1856, 56, 896, 56, -64, 56)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-64, -64, 832, -64, 1856, -64, 1856, 56, 832, 56, -64, 56)
+
+[node name="Area2D" type="Area2D" parent="Ground"]
+position = Vector2(896, -48)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/Area2D"]
+scale = Vector2(2.56, 1)
+polygon = PackedVector2Array(-375, -16, 375, -16, 375, 104, -375, 104)
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(904, 856)
+scale = Vector2(1.84, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform"]
+polygon = PackedVector2Array(-265, 142, 55, 142, 375, 142, 375, 166, 55, 166, -265, 166)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
+polygon = PackedVector2Array(-265, 142, 55, 142, 375, 142, 375, 166, 55, 166, -265, 166)
+
+[node name="Platform" type="Area2D" parent="Platform"]
+position = Vector2(29.8913, 158)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform/Platform"]
+polygon = PackedVector2Array(-295.652, -16, 343.478, -16, 343.478, 8, -295.652, 8)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(968, 64)
+script = ExtResource("1_vlyew")
+block_scenes = Array[PackedScene]([ExtResource("2_dlqo6"), ExtResource("6_xuy3l"), ExtResource("1_x8fpl"), ExtResource("1_jawsa"), ExtResource("4_ft6up"), ExtResource("2_pp7ku"), ExtResource("7_31tgj")])
+
+[connection signal="area_entered" from="Ground/Area2D" to="Spawner" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Platform/Platform" to="Spawner" method="_on_platform_area_entered"]

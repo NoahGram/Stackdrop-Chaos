@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1kgajyrk11uf"]
+
+[ext_resource type="Script" path="res://script/movement.gd" id="1_3ly05"]
+[ext_resource type="Texture2D" uid="uid://25krpu603byc" path="res://assets/blocks/glue_block.png" id="1_aov4v"]
+[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="2_d27wd"]
+[ext_resource type="Script" path="res://script/acid.gd" id="3_1jx25"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_taioi"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_sbyqm"]
+resource_name = "melt"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bb4tl"]
+_data = {
+"melt": SubResource("Animation_sbyqm")
+}
+
+[node name="AcidBlock" type="RigidBody2D"]
+position = Vector2(0, -16)
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_hru32")
+script = ExtResource("1_3ly05")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aov4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_taioi")
+
+[node name="AcidArea" type="Area2D" parent="."]
+script = ExtResource("3_1jx25")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AcidArea"]
+shape = SubResource("RectangleShape2D_taioi")
+
+[node name="BlockStateMachine" type="Node" parent="."]
+script = ExtResource("2_d27wd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bb4tl")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="ready" from="." to="AcidArea" method="_on_acid_block_ready"]
+[connection signal="body_entered" from="AcidArea" to="AcidArea" method="_on_body_entered"]

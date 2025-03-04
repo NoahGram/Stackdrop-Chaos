@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6plg601lmnyg"]
+
+[ext_resource type="Script" path="res://script/movement.gd" id="1_31gmc"]
+[ext_resource type="Texture2D" uid="uid://df33824f6tqc0" path="res://assets/gear/gear.png" id="2_fnkfw"]
+[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_me0gg"]
+[ext_resource type="Script" path="res://script/rotate_gear.gd" id="4_bsh8o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_viubg"]
+radius = 15.0
+
+[node name="Gear" type="RigidBody2D"]
+position = Vector2(0, -16)
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_hru32")
+script = ExtResource("1_31gmc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_fnkfw")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_viubg")
+
+[node name="BlockStateMachine" type="Node" parent="."]
+script = ExtResource("3_me0gg")
+
+[node name="RotateGear" type="Node2D" parent="."]
+script = ExtResource("4_bsh8o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="RotateGear" method="_on_gear_body_entered"]

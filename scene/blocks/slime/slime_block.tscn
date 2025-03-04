@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhs7wkvaaqsmq"]
+
+[ext_resource type="Texture2D" uid="uid://cbjn5irhpif2" path="res://assets/blocks/slime_block.png" id="1_hyf3e"]
+[ext_resource type="Script" path="res://script/movement.gd" id="1_selfd"]
+[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="2_6cepb"]
+[ext_resource type="Script" path="res://script/sticky.gd" id="4_exm44"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_taioi"]
+size = Vector2(32, 32)
+
+[node name="SlimeBlock" type="RigidBody2D"]
+position = Vector2(0, -32)
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_hru32")
+center_of_mass_mode = 1
+center_of_mass = Vector2(-1, 1)
+script = ExtResource("1_selfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_hyf3e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_taioi")
+
+[node name="Stuck" type="Area2D" parent="."]
+script = ExtResource("4_exm44")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuck"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_taioi")
+
+[node name="BlockStateMachine" type="Node" parent="."]
+script = ExtResource("2_6cepb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Stuck" to="Stuck" method="_on_body_entered"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://5bol8401006m"]
+
+[ext_resource type="Script" path="res://script/movement.gd" id="1_1ougn"]
+[ext_resource type="Texture2D" uid="uid://c0rpqypnkn5nx" path="res://assets/tetrominoes/Tetromino_block2_7.png" id="2_c4ulu"]
+[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_y7lgq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hl6du"]
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6kgs"]
+size = Vector2(37.5, 37.3775)
+
+[node name="Block_O" type="RigidBody2D"]
+position = Vector2(0, -38)
+collision_mask = 7
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_hl6du")
+center_of_mass_mode = 1
+center_of_mass = Vector2(-1, 1)
+script = ExtResource("1_1ougn")
+
+[node name="Polygon2D" type="Sprite2D" parent="."]
+position = Vector2(-3.05176e-05, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_c4ulu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_c6kgs")
+
+[node name="BlockStateMachine" type="Node" parent="."]
+script = ExtResource("3_y7lgq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

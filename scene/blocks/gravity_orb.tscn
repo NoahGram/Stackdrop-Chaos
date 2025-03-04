@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3uvisy2w6in7"]
+
+[ext_resource type="Script" path="res://script/movement.gd" id="1_ob237"]
+[ext_resource type="Texture2D" uid="uid://bjbwgqe063d3k" path="res://assets/Gravity_Orb/gravity_orb.png" id="2_jmm0j"]
+[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_bacmu"]
+[ext_resource type="Script" path="res://script/gravity.gd" id="4_c2fee"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_st3xm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ot40m"]
+radius = 351.013
+
+[node name="GravityOrb" type="RigidBody2D"]
+position = Vector2(0, -16)
+collision_mask = 7
+mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_hru32")
+gravity_scale = 0.5
+center_of_mass_mode = 1
+center_of_mass = Vector2(-1, 1)
+script = ExtResource("1_ob237")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+texture = ExtResource("2_jmm0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_st3xm")
+
+[node name="Gravity" type="Area2D" parent="."]
+position = Vector2(0, 5)
+gravity_space_override = 1
+gravity_point = true
+gravity = 1400.0
+script = ExtResource("4_c2fee")
+
+[node name="Field" type="CollisionShape2D" parent="Gravity"]
+shape = SubResource("CircleShape2D_ot40m")
+
+[node name="BlockStateMachine" type="Node" parent="."]
+script = ExtResource("3_bacmu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c62roamahiqnn"]
+
+[ext_resource type="Script" path="res://script/movement.gd" id="1_es562"]
+[ext_resource type="Texture2D" uid="uid://dnmad0utt6ege" path="res://assets/tetrominoes/Tetromino_L1_4.png" id="2_rxwkf"]
+[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_slga6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5uai4"]
+
+[node name="Block_L" type="RigidBody2D"]
+position = Vector2(3, -41)
+collision_mask = 7
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_5uai4")
+center_of_mass_mode = 1
+script = ExtResource("1_es562")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15, -27)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_rxwkf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(4, 41)
+polygon = PackedVector2Array(-34, -1, 56, -1, 56, -46, 11, -46, 11, -136, -34, -136)
+
+[node name="BlockStateMachine" type="Node" parent="."]
+script = ExtResource("3_slga6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

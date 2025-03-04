@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dev6u7gk1dm46"]
+
+[ext_resource type="Script" path="res://script/movement.gd" id="1_1v48d"]
+[ext_resource type="Texture2D" uid="uid://ofiragryl7tj" path="res://assets/weights/weight-10.png" id="2_vngxd"]
+[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_07bet"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tjq"]
+
+[node name="Weight10Kg" type="RigidBody2D"]
+collision_mask = 7
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_k5tjq")
+script = ExtResource("1_1v48d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_vngxd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(-7, 0, 7, 0, 7, -1, 6, -1, 6, -2, 5, -2, 5, -3, 4, -3, 4, -5, 5, -5, 5, -6, 6, -6, 6, -8, 4, -8, 4, -9, 3, -9, 3, -11, 2, -11, 2, -12, -2, -12, -2, -11, -3, -11, -3, -9, -4, -9, -4, -8, -6, -8, -6, -6, -5, -6, -5, -5, -4, -5, -4, -3, -5, -3, -5, -2, -6, -2, -6, -1, -7, -1)
+
+[node name="BlockStateMachine" type="Node" parent="."]
+script = ExtResource("3_07bet")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

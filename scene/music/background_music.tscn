@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b25uvvgtcku8s"]
+
+[ext_resource type="AudioStream" uid="uid://hijld81wugs8" path="res://assets/music/Alex-Productions - Between Oceans and Summits (no vocal).mp3" id="1_yit7v"]
+
+[node name="BackgroundMusic" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_yit7v")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true

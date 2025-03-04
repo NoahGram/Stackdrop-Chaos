@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://bchfsjsuqu7n2"]
+
+[ext_resource type="Texture2D" uid="uid://cp7iavt0du63y" path="res://assets/tetrominoes/360_F_327223167_6s3RXZaysJMMi0AI54z3I4ojBEhhfTdc.jpg" id="1_dplyk"]
+[ext_resource type="Script" path="res://script/spawner.gd" id="1_vlyew"]
+[ext_resource type="PackedScene" uid="uid://dw16r2a7geflt" path="res://scene/block/block_J.tscn" id="3_bit5x"]
+[ext_resource type="PackedScene" uid="uid://c62roamahiqnn" path="res://scene/block/block_L.tscn" id="4_l1olp"]
+[ext_resource type="Texture2D" uid="uid://vv0romw1s3r1" path="res://assets/tetrominoes/Tetromino_I1_1.png" id="10_hg5bv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qsa7r"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1, 1)
+gravity = Vector3(20, 98, 0)
+scale_max = 1.5
+turbulence_enabled = true
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a34vg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4xbi"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqhcv"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy6kh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -72.0
+offset_top = -16.0
+offset_right = 1848.0
+offset_bottom = 1064.0
+scale = Vector2(1.08889, 1.03185)
+texture = ExtResource("1_dplyk")
+metadata/_edit_use_anchors_ = true
+
+[node name="KindaSnow" type="GPUParticles2D" parent="."]
+position = Vector2(944, -16)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_qsa7r")
+lifetime = 10.0
+preprocess = 10.0
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(960, 64)
+script = ExtResource("1_vlyew")
+block_scenes = Array[PackedScene]([ExtResource("3_bit5x"), ExtResource("4_l1olp")])
+spawn_position = null
+
+[node name="LandingDetector" type="Area2D" parent="Spawner"]
+position = Vector2(0, 376)
+rotation = -3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/LandingDetector"]
+scale = Vector2(124.68, 1)
+shape = SubResource("RectangleShape2D_a34vg")
+one_way_collision_margin = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/LandingDetector/CollisionShape2D"]
+texture = ExtResource("10_hg5bv")
+
+[node name="Camera2D" type="Camera2D" parent="Spawner"]
+position = Vector2(0, 480)
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(960, 1000)
+scale = Vector2(7.32, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(1.06667, 1)
+texture = ExtResource("10_hg5bv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_t4xbi")
+
+[node name="Area2D" type="Area2D" parent="Platform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/Area2D"]
+shape = SubResource("RectangleShape2D_bqhcv")
+
+[node name="Abyss" type="Area2D" parent="."]
+position = Vector2(960, 1096)
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Abyss"]
+position = Vector2(0, 16)
+scale = Vector2(159.16, 1.24)
+shape = SubResource("RectangleShape2D_sy6kh")
+
+[connection signal="area_entered" from="Spawner/LandingDetector" to="Spawner" method="_on_camera_increase"]
+[connection signal="area_entered" from="Abyss" to="Spawner" method="_Out_Of_Bounds"]
