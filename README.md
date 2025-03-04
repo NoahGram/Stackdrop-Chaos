@@ -1,4 +1,4 @@
-#StackDrop Chaos
+# StackDrop Chaos
 
 ### **Game Overview & Core Mechanics**
 
