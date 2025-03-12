@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://pa2ia46xtxse"]
 
-[ext_resource type="Script" path="res://script/movement.gd" id="1_l1qic"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_l1qic"]
 [ext_resource type="Texture2D" uid="uid://cfd4275ipgtoh" path="res://assets/balls/ball-blue.png" id="2_g1r0g"]
-[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_dvf03"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_dvf03"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d5qbh"]
 bounce = 0.75
@@ -67,8 +67,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m4pbe"]
 _data = {
-"RESET": SubResource("Animation_oqmn5"),
-"grow": SubResource("Animation_shr2k")
+&"RESET": SubResource("Animation_oqmn5"),
+&"grow": SubResource("Animation_shr2k")
 }
 
 [node name="BlueBall" type="RigidBody2D"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhs7wkvaaqsmq"]
 
 [ext_resource type="Texture2D" uid="uid://cbjn5irhpif2" path="res://assets/blocks/slime_block.png" id="1_hyf3e"]
-[ext_resource type="Script" path="res://script/movement.gd" id="1_selfd"]
-[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="2_6cepb"]
-[ext_resource type="Script" path="res://script/sticky.gd" id="4_exm44"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_selfd"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="2_6cepb"]
+[ext_resource type="Script" uid="uid://blpml57e840gf" path="res://script/sticky.gd" id="4_exm44"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
 absorbent = true

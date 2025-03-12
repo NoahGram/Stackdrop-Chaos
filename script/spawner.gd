@@ -26,9 +26,9 @@ func _ready():
 	# Fill Dictionary & Set Rarity Keys
 	block_scenes = {
 		"common": tetris_scenes,
-		"rare": tetris_scenes,
-		"unique": tetris_scenes,
-		"legendary": tetris_scenes,
+		"rare": ball_scenes,
+		"unique": weight_scenes,
+		"legendary": unique_scenes,
 		}
 
 	fill_bag()

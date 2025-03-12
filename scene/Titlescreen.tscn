@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfibwuhofi8od"]
 
-[ext_resource type="Script" path="res://scene/titlescreen.gd" id="1_bkbvy"]
+[ext_resource type="Script" uid="uid://w83kqbxbg4nk" path="res://scene/titlescreen.gd" id="1_bkbvy"]
 [ext_resource type="Texture2D" uid="uid://doaancugts6q3" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="2_jmvsh"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="3_u4o5h"]
 

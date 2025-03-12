@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://668cy1knov60"]
 
-[ext_resource type="Script" path="res://script/movement.gd" id="1_g0gpp"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_g0gpp"]
 [ext_resource type="Texture2D" uid="uid://dtl21t75dkbw8" path="res://assets/weights/weight-5.png" id="1_ixywc"]
-[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_3duso"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_3duso"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tjq"]
 

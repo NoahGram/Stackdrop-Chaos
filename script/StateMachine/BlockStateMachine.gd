@@ -3,7 +3,6 @@ extends Node
 const State = preload("res://script/StateMachine/states.gd").BlockState
 var current_state = State.SPAWNING
 
-@onready var collision_shape = get_parent().get_node("CollisionShape2D")
 @onready var parent_block = get_parent() as RigidBody2D
 
 @export var animation_player: AnimationPlayer
@@ -21,10 +20,8 @@ func change_state(new_state):
 
 		State.ACTIVE:
 			print("STATE: ACTIVE")
-			collision_shape.set_deferred("disabled", true)
 		State.FALLING:
 			print("STATE: FALLING")
-			collision_shape.set_deferred("disabled", false)
 			parent_block.freeze = false
 
 		State.LANDED:

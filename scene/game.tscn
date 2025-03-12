@@ -1,9 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://bchfsjsuqu7n2"]
+[gd_scene load_steps=36 format=3 uid="uid://bchfsjsuqu7n2"]
 
 [ext_resource type="Texture2D" uid="uid://doaancugts6q3" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_fow1e"]
-[ext_resource type="Script" path="res://script/spawner.gd" id="1_yc6rf"]
+[ext_resource type="Script" uid="uid://eg040ubsfh6q" path="res://script/spawner.gd" id="1_yc6rf"]
+[ext_resource type="PackedScene" uid="uid://fpfnjb3vbqtb" path="res://scene/blocks/tetris/block_I.tscn" id="2_abp7u"]
+[ext_resource type="PackedScene" uid="uid://dw16r2a7geflt" path="res://scene/blocks/tetris/block_J.tscn" id="3_he4o3"]
 [ext_resource type="Texture2D" uid="uid://cp7iavt0du63y" path="res://assets/tetrominoes/360_F_327223167_6s3RXZaysJMMi0AI54z3I4ojBEhhfTdc.jpg" id="4_6375p"]
+[ext_resource type="PackedScene" uid="uid://c62roamahiqnn" path="res://scene/blocks/tetris/block_L.tscn" id="4_yk3to"]
 [ext_resource type="PackedScene" uid="uid://5bol8401006m" path="res://scene/blocks/tetris/block_O.tscn" id="5_nr5d2"]
+[ext_resource type="PackedScene" uid="uid://ipf2srxqeh71" path="res://scene/blocks/tetris/block_S.tscn" id="6_0halo"]
+[ext_resource type="PackedScene" uid="uid://syiyagy80jrk" path="res://scene/blocks/tetris/block_T.tscn" id="7_8p2gu"]
+[ext_resource type="PackedScene" uid="uid://lduh8ola7uwr" path="res://scene/blocks/tetris/block_Z.tscn" id="8_kv4hp"]
 [ext_resource type="PackedScene" uid="uid://668cy1knov60" path="res://scene/blocks/weights/weight_5_kg.tscn" id="9_s16hg"]
 [ext_resource type="PackedScene" uid="uid://dev6u7gk1dm46" path="res://scene/blocks/weights/weight_10_kg.tscn" id="10_8p1a8"]
 [ext_resource type="PackedScene" uid="uid://djdh4vk4iv5ye" path="res://scene/blocks/weights/weight_50_kg.tscn" id="11_ydxyp"]
@@ -14,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dwye5cjargu1o" path="res://scene/blocks/balls/snow_ball.tscn" id="16_5fr6i"]
 [ext_resource type="PackedScene" uid="uid://ddaxtnpubvqc2" path="res://scene/blocks/balls/yellow_ball.tscn" id="17_8m4w6"]
 [ext_resource type="PackedScene" uid="uid://okhedxy532rv" path="res://scene/blocks/morph/morpho_block.tscn" id="18_b285g"]
-[ext_resource type="Script" path="res://script/camera.gd" id="18_h4cgm"]
+[ext_resource type="Script" uid="uid://dt1aibltvdqlv" path="res://script/camera.gd" id="18_h4cgm"]
 [ext_resource type="PackedScene" uid="uid://c3uvisy2w6in7" path="res://scene/blocks/gravity_orb.tscn" id="19_ewu32"]
 [ext_resource type="PackedScene" uid="uid://b6plg601lmnyg" path="res://scene/blocks/gear.tscn" id="19_ljq83"]
 [ext_resource type="PackedScene" uid="uid://b1kgajyrk11uf" path="res://scene/blocks/acid/acid_block.tscn" id="19_xoebr"]
@@ -59,10 +65,10 @@ size = Vector2(1023, 107)
 unique_name_in_owner = true
 position = Vector2(962, 101)
 script = ExtResource("1_yc6rf")
-tetris_scenes = Array[PackedScene]([ExtResource("5_nr5d2")])
+tetris_scenes = Array[PackedScene]([ExtResource("2_abp7u"), ExtResource("3_he4o3"), ExtResource("4_yk3to"), ExtResource("5_nr5d2"), ExtResource("6_0halo"), ExtResource("7_8p2gu"), ExtResource("8_kv4hp")])
 weight_scenes = Array[PackedScene]([ExtResource("9_s16hg"), ExtResource("10_8p1a8"), ExtResource("11_ydxyp")])
 ball_scenes = Array[PackedScene]([ExtResource("12_1ttvv"), ExtResource("13_40ypq"), ExtResource("14_0asg5"), ExtResource("15_rdtf8"), ExtResource("16_5fr6i"), ExtResource("17_8m4w6")])
-unique_scenes = Array[PackedScene]([ExtResource("19_xoebr"), ExtResource("20_c6t5r"), ExtResource("19_ljq83"), ExtResource("19_ewu32"), ExtResource("18_b285g")])
+unique_scenes = Array[PackedScene]([ExtResource("19_xoebr"), ExtResource("18_b285g"), ExtResource("20_c6t5r"), ExtResource("19_ljq83"), ExtResource("19_ewu32")])
 
 [node name="LandingDetector" type="Area2D" parent="Spawner"]
 position = Vector2(40, 208)
@@ -89,11 +95,11 @@ script = ExtResource("18_h4cgm")
 position = Vector2(0, -540)
 scale = Vector2(-1.06404, 1.5217)
 amount = 600
-process_material = SubResource("ParticleProcessMaterial_qsa7r")
 lifetime = 15.0
 preprocess = 15.0
 speed_scale = 1.5
 fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_qsa7r")
 
 [node name="Background" type="ParallaxBackground" parent="Spawner/Camera"]
 

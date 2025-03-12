@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://syiyagy80jrk"]
 
-[ext_resource type="Script" path="res://script/movement.gd" id="1_3w1vi"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_3w1vi"]
 [ext_resource type="Texture2D" uid="uid://b60237p7asqht" path="res://assets/tetrominoes/Tetromino_T2_4.png" id="2_keokt"]
-[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_f1tah"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_f1tah"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3eqjt"]
 absorbent = true

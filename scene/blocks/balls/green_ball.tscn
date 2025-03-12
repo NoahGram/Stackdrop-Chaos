@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1ykhqp51lxgt"]
 
-[ext_resource type="Script" path="res://script/movement.gd" id="1_3dm11"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_3dm11"]
 [ext_resource type="Texture2D" uid="uid://1uy0sc57cy1u" path="res://assets/balls/ball-green.png" id="2_ko7f6"]
-[ext_resource type="Script" path="res://script/StateMachine/BlockStateMachine.gd" id="3_f1p1y"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_f1p1y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d5qbh"]
 bounce = 0.75
