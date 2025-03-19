@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://lduh8ola7uwr"]
 
-[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_cr67r"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_cr67r"]
 [ext_resource type="Texture2D" uid="uid://ct5wxrk1uidx0" path="res://assets/tetrominoes/Tetromino_Z1_1.png" id="2_8c1a0"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_xsq2e"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="3_xsq2e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vandb"]
 

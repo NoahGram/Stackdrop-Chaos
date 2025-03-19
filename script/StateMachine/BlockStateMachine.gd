@@ -1,6 +1,6 @@
 extends Node
 
-const State = preload("res://script/StateMachine/states.gd").BlockState
+const State = preload("res://script/stateMachine/states.gd").BlockState
 var current_state = State.SPAWNING
 
 @onready var parent_block = get_parent() as RigidBody2D
@@ -28,7 +28,7 @@ func change_state(new_state):
 			print("STATE: LANDED")
 			await get_tree().create_timer(0.5).timeout
 			if animation_player:
-				animation_player.play("grow")  # Play animation if available
+				animation_player.play("grow")
 
 		State.DESTROYED:
 			parent_block.queue_free()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://5bol8401006m"]
 
-[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_1ougn"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_1ougn"]
 [ext_resource type="Texture2D" uid="uid://c0rpqypnkn5nx" path="res://assets/tetrominoes/Tetromino_block2_7.png" id="2_c4ulu"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_y7lgq"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="3_y7lgq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hl6du"]
 rough = true

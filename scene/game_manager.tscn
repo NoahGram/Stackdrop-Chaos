@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://c62w2k0sreilp"]
+
+[ext_resource type="Script" uid="uid://doeym2yedai6w" path="res://script/game_manager.gd" id="1_3c3go"]
+[ext_resource type="PackedScene" uid="uid://bchfsjsuqu7n2" path="res://scene/game.tscn" id="2_a81tu"]
+[ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="3_a81tu"]
+
+[node name="GameManager" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_3c3go")
+
+[node name="Main" parent="." instance=ExtResource("2_a81tu")]
+process_mode = 1
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="PauseScreen"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PauseScreen/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PauseScreen/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 0.577
+anchor_right = 0.521
+anchor_bottom = 0.577
+offset_left = -85.3201
+offset_top = -27.16
+offset_right = 84.6799
+offset_bottom = 26.84
+theme_override_fonts/font = ExtResource("3_a81tu")
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+
+[node name="Quit" type="Button" parent="PauseScreen/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 0.663
+anchor_right = 0.521
+anchor_bottom = 0.663
+offset_left = -85.3201
+offset_top = -27.04
+offset_right = 84.6799
+offset_bottom = 26.96
+theme_override_fonts/font = ExtResource("3_a81tu")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[connection signal="pressed" from="PauseScreen/Control/Panel/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/Control/Panel/Quit" to="." method="_on_quit_pressed"]

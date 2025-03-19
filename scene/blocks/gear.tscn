@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6plg601lmnyg"]
 
-[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_31gmc"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_31gmc"]
 [ext_resource type="Texture2D" uid="uid://df33824f6tqc0" path="res://assets/gear/gear.png" id="2_fnkfw"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_me0gg"]
-[ext_resource type="Script" uid="uid://b1aj6i8f537m0" path="res://script/rotate_gear.gd" id="4_bsh8o"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="3_me0gg"]
+[ext_resource type="Script" uid="uid://b1aj6i8f537m0" path="res://script/blocks/rotate_gear.gd" id="4_bsh8o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
 
