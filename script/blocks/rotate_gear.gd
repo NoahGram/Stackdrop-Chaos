@@ -18,6 +18,18 @@ func _on_gear_body_entered(body: PhysicsBody2D) -> void:
 
 func spin(spin: float, block: PhysicsBody2D):
 	var tween = get_tree().create_tween()
-	tween.tween_property(get_node(block.get_path()).get_node("Sprite2D"), "rotation", spin, 2)
-	tween.tween_property(get_node(block.get_path()).get_node("CollisionShape2D"), "rotation", spin, 2)
 	
+	if block.find_child("Sprite2D"):
+		tween.tween_property(block.find_child("Sprite2D"), "rotation", spin, 2)
+	elif block.find_child("AnimatedSprite2D"):
+		tween.tween_property(block.find_child("AnimatedSprite2D"), "rotation", spin, 2)
+	else:
+		print("Error: No CollisionShape Found")
+	
+	
+	if block.find_child("CollisionPolygon2D"):
+		tween.parallel().tween_property(block.find_child("CollisionPolygon2D"), "rotation", spin, 2)
+	elif block.find_child("CollisionShape2D"):
+		tween.parallel().tween_property(block.find_child("CollisionShape2D"), "rotation", spin, 2)
+	else:
+		print("Error: No CollisionShape Found")

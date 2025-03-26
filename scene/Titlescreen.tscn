@@ -1,8 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfibwuhofi8od"]
+[gd_scene load_steps=13 format=3 uid="uid://bfibwuhofi8od"]
 
 [ext_resource type="Script" uid="uid://w83kqbxbg4nk" path="res://script/titlescreen.gd" id="1_bkbvy"]
 [ext_resource type="Texture2D" uid="uid://doaancugts6q3" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="2_jmvsh"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="3_u4o5h"]
+[ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="3_vrmf4"]
+[ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="4_i7d8b"]
+[ext_resource type="Shader" uid="uid://gsd38r8yu8bi" path="res://shader/scroll.gdshader" id="5_ho2gf"]
+[ext_resource type="Texture2D" uid="uid://dmokecqtro8ny" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="6_0odtj"]
+[ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="7_ojg6b"]
+[ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="8_gqf13"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c41j0"]
+shader = ExtResource("3_vrmf4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnn6u"]
+shader = ExtResource("5_ho2gf")
 
 [sub_resource type="LabelSettings" id="LabelSettings_t2njo"]
 font = ExtResource("3_u4o5h")
@@ -18,14 +30,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bkbvy")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Background" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="BackgroundLayer" type="ParallaxLayer" parent="Background"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2(960, 540)
-scale = Vector2(5, 5)
+[node name="Mountains" type="Sprite2D" parent="Background/BackgroundLayer"]
+position = Vector2(960.5, 540)
+scale = Vector2(5.0026, 5)
 texture = ExtResource("2_jmvsh")
+
+[node name="Clouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_c41j0")
+position = Vector2(963, 545)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("4_i7d8b")
+
+[node name="UnderClouds3" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_gnn6u")
+position = Vector2(964.75, 541.5)
+scale = Vector2(4.99609, 4.99537)
+texture = ExtResource("6_0odtj")
+
+[node name="UnderClouds2" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_gnn6u")
+position = Vector2(964.75, 541.5)
+scale = Vector2(4.99609, 4.99537)
+texture = ExtResource("7_ojg6b")
+
+[node name="UnderClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_gnn6u")
+position = Vector2(964.75, 541.5)
+scale = Vector2(4.99609, 4.99537)
+texture = ExtResource("8_gqf13")
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 1

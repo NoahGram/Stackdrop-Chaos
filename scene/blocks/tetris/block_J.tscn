@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_25rj0"]
 [ext_resource type="Texture2D" uid="uid://b6krnplcvwb0p" path="res://assets/tetrominoes/Tetromino_J1_2.png" id="2_23pl8"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="3_61ye0"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_61ye0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2g6ic"]
 

@@ -11,24 +11,18 @@ const weights = preload("res://script/weights.gd").WEIGHTS
 @export var spawn_position: Vector2
 var spawner_locked = false  # Prevents multiple spawns
 
-@onready var cam: Camera2D
-@onready var landing_detector: Area2D
-
 var current_block
 var bag = []
 @export var bag_size: int = 7
 
 
 func _ready():
-	cam = get_node("Camera")
-	landing_detector = get_node("LandingDetector")
-	
 	# Fill Dictionary & Set Rarity Keys
 	block_scenes = {
 		"common": tetris_scenes,
-		"rare": ball_scenes,
-		"unique": weight_scenes,
-		"legendary": unique_scenes,
+		"rare": weight_scenes,
+		"unique": unique_scenes,
+		"legendary": ball_scenes,
 		}
 
 	fill_bag()
@@ -74,10 +68,8 @@ func spawn_block():
 	if current_block is RigidBody2D:
 		current_block.position = spawn_position
 		add_child(current_block) 
-		
 		print("Spawned new block!")
 		spawner_locked = true  
-
 		current_block.connect("block_stopped", Callable(self, "_on_block_stopped"))
 
 

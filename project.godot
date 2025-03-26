@@ -17,7 +17,8 @@ config/icon="res://assets/icon/DALL·E 2025-02-21 13.42.50 - A colorful, cartoon
 
 [autoload]
 
-BackgroundMusic="*res://scene/music/background_music.tscn"
+ScoreManager="*res://globals/score_manager.gd"
+BackgroundMusic="*res://globals/music/background_music.tscn"
 
 [display]
 

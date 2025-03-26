@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_l1qic"]
 [ext_resource type="Texture2D" uid="uid://cfd4275ipgtoh" path="res://assets/balls/ball-blue.png" id="2_g1r0g"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="3_dvf03"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_dvf03"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d5qbh"]
 bounce = 0.75
@@ -71,11 +71,13 @@ _data = {
 &"grow": SubResource("Animation_shr2k")
 }
 
-[node name="BlueBall" type="RigidBody2D"]
+[node name="BlueBall" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
 position = Vector2(0, -7)
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_d5qbh")
 script = ExtResource("1_l1qic")
+animation_player = NodePath("AnimationPlayer")
+block_type = "ball"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -6)
@@ -87,13 +89,12 @@ position = Vector2(0, -7)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_lahi6")
 
-[node name="BlockStateMachine" type="Node" parent="." node_paths=PackedStringArray("animation_player")]
+[node name="BlockStateMachine" type="Node" parent="."]
 script = ExtResource("3_dvf03")
-animation_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m4pbe")
+&"": SubResource("AnimationLibrary_m4pbe")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

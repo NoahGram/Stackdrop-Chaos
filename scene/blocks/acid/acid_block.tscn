@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_3ly05"]
 [ext_resource type="Texture2D" uid="uid://25krpu603byc" path="res://assets/blocks/glue_block.png" id="1_aov4v"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="2_d27wd"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="2_d27wd"]
 [ext_resource type="Script" uid="uid://bevgefahc3msc" path="res://script/blocks/acid.gd" id="3_1jx25"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
@@ -23,6 +23,7 @@ position = Vector2(0, -16)
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_hru32")
 script = ExtResource("1_3ly05")
+block_type = "acid"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_aov4v")
@@ -41,7 +42,7 @@ script = ExtResource("2_d27wd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bb4tl")
+&"": SubResource("AnimationLibrary_bb4tl")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

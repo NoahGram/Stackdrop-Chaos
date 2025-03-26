@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_7pq6g"]
 [ext_resource type="Texture2D" uid="uid://bbh3qtchmxj3h" path="res://assets/weights/weight-50.png" id="2_gd8q1"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="3_bm8kn"]
+[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_bm8kn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tjq"]
 
@@ -12,6 +12,7 @@ collision_mask = 7
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_k5tjq")
 script = ExtResource("1_7pq6g")
+block_type = "weight"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
