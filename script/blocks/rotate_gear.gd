@@ -9,7 +9,7 @@ func _on_gear_body_entered(body: PhysicsBody2D) -> void:
 		return
 	
 	var rand = randf_range(-60.00, 60.00)
-	print("Rotating ", body, " ", rand)
+	#print("Rotating ", body, " ", rand)
 	if not is_active:
 		spin(rand, body)
 		is_active = true

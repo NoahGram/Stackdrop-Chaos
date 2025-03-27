@@ -9,12 +9,11 @@ var block_has_stopped: bool = false
 
 signal block_stopped  
 
-enum BlockState { SPAWNING, ACTIVE, FALLING, LANDED, DESTROYED }
+enum BlockState { SPAWNING, ACTIVE, FALLING, LANDED }
 var current_state = BlockState.SPAWNING
 
 @export var animation_player: AnimationPlayer
 
-# 🔹 Block Score Values (Modify as needed)
 const BLOCK_SCORES = {
 	"tetris": 100,
 	"weight": 200,
@@ -23,11 +22,11 @@ const BLOCK_SCORES = {
 	"acid": 0,
 }
 
-@export var block_type: String = "tetris"  # Set in the Editor for each block
+@export var block_type: String = "tetris"
 @onready var ground_level: float = get_node("/root/GameManager/Main/Platform").position.y
 
 var score: int = 0
-@onready var score_label: Label = get_node("/root/GameManager/Main/ScoreLabel")  # Adjust path if needed
+@onready var score_label: Label = get_node("/root/GameManager/Main/ScoreLabel")
 
 
 func _ready():
@@ -57,9 +56,6 @@ func change_state(new_state):
 			if animation_player:
 				animation_player.play("grow")
 
-		BlockState.DESTROYED:
-			queue_free()
-
 func _physics_process(delta: float) -> void:
 	if current_state == BlockState.ACTIVE:
 		global_position.x = clamp(global_position.x, 175, 1675)
@@ -69,7 +65,14 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("right"):
 			position.x += move_speed
 		if Input.is_action_just_pressed("rotate"):
-			rotation += deg_to_rad(rotation_speed)
+			var rotate = create_tween()
+			rotate.tween_property(
+				self, 
+				"rotation", 
+				rotation + deg_to_rad(rotation_speed),
+				0.5
+			)
+
 		if Input.is_action_just_pressed("drop_block"):
 			change_state(BlockState.FALLING)
 
@@ -97,7 +100,7 @@ func calculate_score():
 		score_label.text = "Score: " + str(ScoreManager.total_score)
 		
 func rip_score():
-	var base_score = BLOCK_SCORES.get(block_type, 100)  # Get block score
+	var base_score = BLOCK_SCORES.get(block_type, 100)
 	var height_diff = abs(global_position.y - ground_level)  
 	var multiplier = 1.5
 
@@ -105,12 +108,9 @@ func rip_score():
 		multiplier += height_diff / 100.0  
 
 	var penalty = round(base_score * multiplier)
-
-	# Subtract from total score (ensure it doesn't go negative)
 	ScoreManager.total_score = max(0, ScoreManager.total_score - penalty)
 
-	# Update score display
 	if score_label:
 		score_label.text = "Score: " + str(ScoreManager.total_score)
 
-	print("Penalty Applied: ", penalty, " | New Total Score: ", ScoreManager.total_score)
+	#print("Penalty Applied: ", penalty, " | New Total Score: ", ScoreManager.total_score)

@@ -46,7 +46,7 @@ func fill_bag():
 
 		var scene_list = block_scenes[selected_category]
 		if scene_list.size() > 0:
-			var random_scene = scene_list.pick_random()  # Pick a random scene from the selected category
+			var random_scene = scene_list.pick_random()
 			bag.append(random_scene)
 			
 	bag.shuffle()
@@ -75,6 +75,6 @@ func spawn_block():
 
 func _on_block_stopped():
 	print("Block Dropped - Spawning next block")
-	await get_tree().create_timer(1).timeout # Delay Spawning
+	await get_tree().create_timer(1).timeout
 	spawner_locked = false
 	spawn_block()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://syiyagy80jrk"]
+[gd_scene load_steps=4 format=3 uid="uid://syiyagy80jrk"]
 
 [ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_3w1vi"]
 [ext_resource type="Texture2D" uid="uid://b60237p7asqht" path="res://assets/tetrominoes/Tetromino_T2_4.png" id="2_keokt"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/stateMachine/BlockStateMachine.gd" id="3_f1tah"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3eqjt"]
 absorbent = true
@@ -18,9 +17,6 @@ script = ExtResource("1_3w1vi")
 position = Vector2(-0.5, 0)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_keokt")
-
-[node name="BlockStateMachine" type="Node" parent="."]
-script = ExtResource("3_f1tah")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-68, -45, 67, -45, 67, 0, 22, 0, 22, 45, -23, 45, -23, 0, -68, 0)

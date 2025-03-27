@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddaxtnpubvqc2"]
+[gd_scene load_steps=5 format=3 uid="uid://ddaxtnpubvqc2"]
 
 [ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_4ng8p"]
 [ext_resource type="Texture2D" uid="uid://cg1u8okdnk12r" path="res://assets/balls/ball-yellow.png" id="2_ej2pd"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_pg1bk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d5qbh"]
 bounce = 0.75
@@ -26,8 +25,5 @@ texture = ExtResource("2_ej2pd")
 position = Vector2(0, -7)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_lahi6")
-
-[node name="BlockStateMachine" type="Node" parent="."]
-script = ExtResource("3_pg1bk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

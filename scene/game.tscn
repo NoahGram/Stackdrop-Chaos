@@ -1,6 +1,5 @@
-[gd_scene load_steps=45 format=3 uid="uid://bchfsjsuqu7n2"]
+[gd_scene load_steps=48 format=3 uid="uid://bchfsjsuqu7n2"]
 
-[ext_resource type="Texture2D" uid="uid://doaancugts6q3" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_fow1e"]
 [ext_resource type="Script" uid="uid://eg040ubsfh6q" path="res://script/spawner.gd" id="1_yc6rf"]
 [ext_resource type="PackedScene" uid="uid://fpfnjb3vbqtb" path="res://scene/blocks/tetris/block_I.tscn" id="2_abp7u"]
 [ext_resource type="PackedScene" uid="uid://dw16r2a7geflt" path="res://scene/blocks/tetris/block_J.tscn" id="3_he4o3"]
@@ -29,11 +28,13 @@
 [ext_resource type="PackedScene" uid="uid://c3uvisy2w6in7" path="res://scene/blocks/gravity_orb.tscn" id="22_yk3to"]
 [ext_resource type="Shader" uid="uid://gsd38r8yu8bi" path="res://shader/scroll.gdshader" id="25_0halo"]
 [ext_resource type="Texture2D" uid="uid://8gqreqlskbfj" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" id="25_b5mwo"]
+[ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="25_mm2a7"]
 [ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="26_mm2a7"]
 [ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="27_0halo"]
 [ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="27_8p2gu"]
 [ext_resource type="Texture2D" uid="uid://dmokecqtro8ny" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="29_0jy4g"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="29_he4o3"]
+[ext_resource type="Shader" uid="uid://i5m1r21cjxs1" path="res://shader/scroll_slow.gdshader" id="29_mm2a7"]
 [ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="30_mm2a7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a34vg"]
@@ -62,8 +63,14 @@ turbulence_influence_max = 0.05
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0halo"]
 shader = ExtResource("26_mm2a7")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8p2gu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d218c"]
 shader = ExtResource("25_0halo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jy4g"]
+shader = ExtResource("29_mm2a7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8p2gu"]
+shader = ExtResource("26_mm2a7")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_he4o3"]
 
@@ -121,12 +128,68 @@ process_material = SubResource("ParticleProcessMaterial_qsa7r")
 [node name="Mountains" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
 position = Vector2(960.5, 540)
 scale = Vector2(5.0026, 5)
-texture = ExtResource("1_fow1e")
+texture = ExtResource("25_mm2a7")
 
 [node name="Clouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_0halo")
 position = Vector2(963, 545)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds2" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(963, -157)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds3" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -654)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds4" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -754)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds5" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -1194)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds6" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -2460)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds7" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -3659)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds8" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -5042)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds9" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -6049)
 scale = Vector2(5.0026, 5)
 texture = ExtResource("27_8p2gu")
 
@@ -136,21 +199,21 @@ position = Vector2(962, 0)
 scale = Vector2(5.0026, 60.9595)
 texture = ExtResource("25_b5mwo")
 
-[node name="UnderClouds3" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+[node name="BackClouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
 texture_repeat = 2
-material = SubResource("ShaderMaterial_8p2gu")
-position = Vector2(964.75, 541.5)
-scale = Vector2(4.99609, 4.99537)
+material = SubResource("ShaderMaterial_d218c")
+position = Vector2(963, 542.5)
+scale = Vector2(5.00521, 4.98611)
 texture = ExtResource("29_0jy4g")
 
-[node name="UnderClouds2" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+[node name="MidClouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
 texture_repeat = 2
-material = SubResource("ShaderMaterial_8p2gu")
-position = Vector2(964.75, 541.5)
-scale = Vector2(4.99609, 4.99537)
+material = SubResource("ShaderMaterial_0jy4g")
+position = Vector2(961.5, 544.5)
+scale = Vector2(4.9974, 5.00463)
 texture = ExtResource("30_mm2a7")
 
-[node name="UnderClouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+[node name="FrontClouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_8p2gu")
 position = Vector2(964.75, 541.5)
