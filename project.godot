@@ -13,7 +13,7 @@ config_version=5
 config/name="Stackdrop Chaos"
 run/main_scene="res://scene/titlescreen.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://assets/icon/DALL·E 2025-02-21 13.42.50 - A colorful, cartoony icon for a physics-based Tetris-style tower stacking game. The image features a wobbly, leaning tower made of classic Tetris-like.webp"
+config/icon="res://assets/icon/Icon.webp"
 
 [autoload]
 
