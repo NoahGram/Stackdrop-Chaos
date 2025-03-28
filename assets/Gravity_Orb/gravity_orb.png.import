@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjbwgqe063d3k"
-path="res://.godot/imported/gravity_orb.png-7b8b67d7a85f2b6c3f6de990a4fc880c.ctex"
+path="res://.godot/imported/gravity_orb.png-70634074ecb370efddd44baaee73d8ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Gravity_Orb/gravity_orb.png"
-dest_files=["res://.godot/imported/gravity_orb.png-7b8b67d7a85f2b6c3f6de990a4fc880c.ctex"]
+source_file="res://assets/gravity_orb/gravity_orb.png"
+dest_files=["res://.godot/imported/gravity_orb.png-70634074ecb370efddd44baaee73d8ae.ctex"]
 
 [params]
 

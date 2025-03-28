@@ -1,9 +1,8 @@
-[gd_scene load_steps=48 format=3 uid="uid://bchfsjsuqu7n2"]
+[gd_scene load_steps=47 format=3 uid="uid://bchfsjsuqu7n2"]
 
 [ext_resource type="Script" uid="uid://eg040ubsfh6q" path="res://script/spawner.gd" id="1_yc6rf"]
 [ext_resource type="PackedScene" uid="uid://fpfnjb3vbqtb" path="res://scene/blocks/tetris/block_I.tscn" id="2_abp7u"]
 [ext_resource type="PackedScene" uid="uid://dw16r2a7geflt" path="res://scene/blocks/tetris/block_J.tscn" id="3_he4o3"]
-[ext_resource type="Texture2D" uid="uid://cp7iavt0du63y" path="res://assets/tetrominoes/360_F_327223167_6s3RXZaysJMMi0AI54z3I4ojBEhhfTdc.jpg" id="4_6375p"]
 [ext_resource type="PackedScene" uid="uid://c62roamahiqnn" path="res://scene/blocks/tetris/block_L.tscn" id="4_yk3to"]
 [ext_resource type="PackedScene" uid="uid://5bol8401006m" path="res://scene/blocks/tetris/block_O.tscn" id="5_nr5d2"]
 [ext_resource type="PackedScene" uid="uid://ipf2srxqeh71" path="res://scene/blocks/tetris/block_S.tscn" id="6_0halo"]
@@ -99,12 +98,6 @@ position = Vector2(40.9999, -18.5)
 scale = Vector2(124.68, 1)
 shape = SubResource("RectangleShape2D_a34vg")
 one_way_collision_margin = 10.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Spawner/LandingDetector"]
-visible = false
-position = Vector2(-0.000244141, -78)
-scale = Vector2(124.68, 1)
-texture = ExtResource("4_6375p")
 
 [node name="Camera" type="Camera2D" parent="Spawner"]
 position = Vector2(0, 439)

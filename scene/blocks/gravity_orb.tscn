@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3uvisy2w6in7"]
 
 [ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_ob237"]
-[ext_resource type="Texture2D" uid="uid://bjbwgqe063d3k" path="res://assets/Gravity_Orb/gravity_orb.png" id="2_jmm0j"]
+[ext_resource type="Texture2D" uid="uid://bjbwgqe063d3k" path="res://assets/gravity_orb/gravity_orb.png" id="2_jmm0j"]
 [ext_resource type="Script" uid="uid://cc4odf3a7asfu" path="res://script/blocks/gravity.gd" id="4_c2fee"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
