@@ -1,10 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://bchfsjsuqu7n2"]
+[gd_scene load_steps=47 format=3 uid="uid://bchfsjsuqu7n2"]
 
-[ext_resource type="Texture2D" uid="uid://doaancugts6q3" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_fow1e"]
 [ext_resource type="Script" uid="uid://eg040ubsfh6q" path="res://script/spawner.gd" id="1_yc6rf"]
 [ext_resource type="PackedScene" uid="uid://fpfnjb3vbqtb" path="res://scene/blocks/tetris/block_I.tscn" id="2_abp7u"]
 [ext_resource type="PackedScene" uid="uid://dw16r2a7geflt" path="res://scene/blocks/tetris/block_J.tscn" id="3_he4o3"]
-[ext_resource type="Texture2D" uid="uid://cp7iavt0du63y" path="res://assets/tetrominoes/360_F_327223167_6s3RXZaysJMMi0AI54z3I4ojBEhhfTdc.jpg" id="4_6375p"]
 [ext_resource type="PackedScene" uid="uid://c62roamahiqnn" path="res://scene/blocks/tetris/block_L.tscn" id="4_yk3to"]
 [ext_resource type="PackedScene" uid="uid://5bol8401006m" path="res://scene/blocks/tetris/block_O.tscn" id="5_nr5d2"]
 [ext_resource type="PackedScene" uid="uid://ipf2srxqeh71" path="res://scene/blocks/tetris/block_S.tscn" id="6_0halo"]
@@ -19,18 +17,27 @@
 [ext_resource type="PackedScene" uid="uid://b6aqfunmnnool" path="res://scene/blocks/balls/red_ball.tscn" id="15_rdtf8"]
 [ext_resource type="PackedScene" uid="uid://dwye5cjargu1o" path="res://scene/blocks/balls/snow_ball.tscn" id="16_5fr6i"]
 [ext_resource type="PackedScene" uid="uid://ddaxtnpubvqc2" path="res://scene/blocks/balls/yellow_ball.tscn" id="17_8m4w6"]
-[ext_resource type="PackedScene" uid="uid://okhedxy532rv" path="res://scene/blocks/morph/morpho_block.tscn" id="18_b285g"]
+[ext_resource type="PackedScene" uid="uid://okhedxy532rv" path="res://scene/blocks/morph/morpho_block.tscn" id="18_355h4"]
+[ext_resource type="PackedScene" uid="uid://dhs7wkvaaqsmq" path="res://scene/blocks/slime/slime_block.tscn" id="18_abp7u"]
 [ext_resource type="Script" uid="uid://dt1aibltvdqlv" path="res://script/camera.gd" id="18_h4cgm"]
-[ext_resource type="PackedScene" uid="uid://c3uvisy2w6in7" path="res://scene/blocks/gravity_orb.tscn" id="19_ewu32"]
 [ext_resource type="PackedScene" uid="uid://b6plg601lmnyg" path="res://scene/blocks/gear.tscn" id="19_ljq83"]
-[ext_resource type="PackedScene" uid="uid://b1kgajyrk11uf" path="res://scene/blocks/acid/acid_block.tscn" id="19_xoebr"]
-[ext_resource type="PackedScene" uid="uid://dhs7wkvaaqsmq" path="res://scene/blocks/slime/slime_block.tscn" id="20_c6t5r"]
+[ext_resource type="PackedScene" uid="uid://b1kgajyrk11uf" path="res://scene/blocks/acid/acid_block.tscn" id="20_he4o3"]
 [ext_resource type="Texture2D" uid="uid://dsdo6h01v0vbh" path="res://assets/platform/sand-platform.png" id="21_v8k2j"]
 [ext_resource type="PackedScene" uid="uid://rjwjsihth6d8" path="res://scene/deathzone.tscn" id="22_r7kgp"]
+[ext_resource type="PackedScene" uid="uid://c3uvisy2w6in7" path="res://scene/blocks/gravity_orb.tscn" id="22_yk3to"]
+[ext_resource type="Shader" uid="uid://gsd38r8yu8bi" path="res://shader/scroll.gdshader" id="25_0halo"]
 [ext_resource type="Texture2D" uid="uid://8gqreqlskbfj" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" id="25_b5mwo"]
+[ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="25_mm2a7"]
+[ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="26_mm2a7"]
+[ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="27_0halo"]
+[ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="27_8p2gu"]
+[ext_resource type="Texture2D" uid="uid://dmokecqtro8ny" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="29_0jy4g"]
+[ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="29_he4o3"]
+[ext_resource type="Shader" uid="uid://i5m1r21cjxs1" path="res://shader/scroll_slow.gdshader" id="29_mm2a7"]
+[ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="30_mm2a7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a34vg"]
-size = Vector2(20, 103)
+size = Vector2(15.4475, 103)
 
 [sub_resource type="Gradient" id="Gradient_0ppkm"]
 interpolation_mode = 2
@@ -52,7 +59,19 @@ turbulence_enabled = true
 turbulence_influence_min = 0.01
 turbulence_influence_max = 0.05
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rpw28"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0halo"]
+shader = ExtResource("26_mm2a7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d218c"]
+shader = ExtResource("25_0halo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jy4g"]
+shader = ExtResource("29_mm2a7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8p2gu"]
+shader = ExtResource("26_mm2a7")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_he4o3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ueqyi"]
 size = Vector2(1023, 107)
@@ -68,23 +87,17 @@ script = ExtResource("1_yc6rf")
 tetris_scenes = Array[PackedScene]([ExtResource("2_abp7u"), ExtResource("3_he4o3"), ExtResource("4_yk3to"), ExtResource("5_nr5d2"), ExtResource("6_0halo"), ExtResource("7_8p2gu"), ExtResource("8_kv4hp")])
 weight_scenes = Array[PackedScene]([ExtResource("9_s16hg"), ExtResource("10_8p1a8"), ExtResource("11_ydxyp")])
 ball_scenes = Array[PackedScene]([ExtResource("12_1ttvv"), ExtResource("13_40ypq"), ExtResource("14_0asg5"), ExtResource("15_rdtf8"), ExtResource("16_5fr6i"), ExtResource("17_8m4w6")])
-unique_scenes = Array[PackedScene]([ExtResource("19_xoebr"), ExtResource("18_b285g"), ExtResource("20_c6t5r"), ExtResource("19_ljq83"), ExtResource("19_ewu32")])
+unique_scenes = Array[PackedScene]([ExtResource("18_abp7u"), ExtResource("18_355h4"), ExtResource("20_he4o3"), ExtResource("19_ljq83"), ExtResource("22_yk3to")])
 
 [node name="LandingDetector" type="Area2D" parent="Spawner"]
 position = Vector2(40, 208)
 rotation = -3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/LandingDetector"]
-position = Vector2(-0.000183105, -18.5)
+position = Vector2(40.9999, -18.5)
 scale = Vector2(124.68, 1)
 shape = SubResource("RectangleShape2D_a34vg")
 one_way_collision_margin = 10.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Spawner/LandingDetector"]
-visible = false
-position = Vector2(-0.000244141, -78)
-scale = Vector2(124.68, 1)
-texture = ExtResource("4_6375p")
 
 [node name="Camera" type="Camera2D" parent="Spawner"]
 position = Vector2(0, 439)
@@ -108,7 +121,70 @@ process_material = SubResource("ParticleProcessMaterial_qsa7r")
 [node name="Mountains" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
 position = Vector2(960.5, 540)
 scale = Vector2(5.0026, 5)
-texture = ExtResource("1_fow1e")
+texture = ExtResource("25_mm2a7")
+
+[node name="Clouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(963, 545)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds2" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(963, -157)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds3" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -654)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds4" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -754)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds5" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -1194)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds6" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -2460)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds7" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -3659)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds8" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -5042)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
+
+[node name="Clouds9" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0halo")
+position = Vector2(962, -6049)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("27_8p2gu")
 
 [node name="Skybox" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
 z_index = -1
@@ -116,10 +192,31 @@ position = Vector2(962, 0)
 scale = Vector2(5.0026, 60.9595)
 texture = ExtResource("25_b5mwo")
 
+[node name="BackClouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_d218c")
+position = Vector2(963, 542.5)
+scale = Vector2(5.00521, 4.98611)
+texture = ExtResource("29_0jy4g")
+
+[node name="MidClouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0jy4g")
+position = Vector2(961.5, 544.5)
+scale = Vector2(4.9974, 5.00463)
+texture = ExtResource("30_mm2a7")
+
+[node name="FrontClouds" type="Sprite2D" parent="Spawner/Camera/Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_8p2gu")
+position = Vector2(964.75, 541.5)
+scale = Vector2(4.99609, 4.99537)
+texture = ExtResource("27_0halo")
+
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(1002, 1001)
 collision_layer = 2
-physics_material_override = SubResource("PhysicsMaterial_rpw28")
+physics_material_override = SubResource("PhysicsMaterial_he4o3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 position = Vector2(0, 20)
@@ -136,6 +233,17 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
 shape = SubResource("WorldBoundaryShape2D_bdj4o")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 51.0
+offset_right = 260.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("29_he4o3")
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Spawner/LandingDetector" to="Spawner/Camera" method="_on_camera_increase"]
 [connection signal="body_exited" from="Spawner/LandingDetector" to="Spawner/Camera" method="_on_camera_decrease"]

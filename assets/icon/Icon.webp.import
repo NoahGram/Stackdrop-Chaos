@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjbwgqe063d3k"
-path="res://.godot/imported/gravity_orb.png-70634074ecb370efddd44baaee73d8ae.ctex"
+uid="uid://c0wbh2t5p0fa5"
+path="res://.godot/imported/Icon.webp-0f91e1bdd7caddd35b84624b61c6f557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gravity_orb/gravity_orb.png"
-dest_files=["res://.godot/imported/gravity_orb.png-70634074ecb370efddd44baaee73d8ae.ctex"]
+source_file="res://assets/icon/Icon.webp"
+dest_files=["res://.godot/imported/Icon.webp-0f91e1bdd7caddd35b84624b61c6f557.ctex"]
 
 [params]
 

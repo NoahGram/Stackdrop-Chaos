@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://djdh4vk4iv5ye"]
+[gd_scene load_steps=4 format=3 uid="uid://djdh4vk4iv5ye"]
 
-[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_7pq6g"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_7pq6g"]
 [ext_resource type="Texture2D" uid="uid://bbh3qtchmxj3h" path="res://assets/weights/weight-50.png" id="2_gd8q1"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_bm8kn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tjq"]
 
@@ -12,6 +11,7 @@ collision_mask = 7
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_k5tjq")
 script = ExtResource("1_7pq6g")
+block_type = "weight"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
@@ -22,8 +22,5 @@ texture = ExtResource("2_gd8q1")
 position = Vector2(0, 24)
 scale = Vector2(6, 6)
 polygon = PackedVector2Array(-8, 0, -8, -2, -7, -2, -7, -3, -6, -3, -6, -4, -5, -4, -5, -6, -6, -6, -6, -7, -7, -7, -7, -9, -4, -9, -4, -10, -3, -10, -3, -12, -2, -12, -2, -13, 2, -13, 2, -12, 3, -12, 3, -10, 4, -10, 4, -9, 7, -9, 7, -7, 6, -7, 6, -6, 5, -6, 5, -4, 6, -4, 6, -3, 7, -3, 7, -2, 8, -2, 8, 0)
-
-[node name="BlockStateMachine" type="Node" parent="."]
-script = ExtResource("3_bm8kn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

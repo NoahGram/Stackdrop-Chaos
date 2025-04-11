@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3uvisy2w6in7"]
+[gd_scene load_steps=7 format=3 uid="uid://c3uvisy2w6in7"]
 
-[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/movement.gd" id="1_ob237"]
-[ext_resource type="Texture2D" uid="uid://bjbwgqe063d3k" path="res://assets/Gravity_Orb/gravity_orb.png" id="2_jmm0j"]
-[ext_resource type="Script" uid="uid://cpg7xpi8urf2c" path="res://script/StateMachine/BlockStateMachine.gd" id="3_bacmu"]
-[ext_resource type="Script" uid="uid://cc4odf3a7asfu" path="res://script/gravity.gd" id="4_c2fee"]
+[ext_resource type="Script" uid="uid://b0ea1jct6xvkr" path="res://script/blocks/movement.gd" id="1_ob237"]
+[ext_resource type="Texture2D" uid="uid://bjbwgqe063d3k" path="res://assets/gravity_orb/gravity_orb.png" id="2_jmm0j"]
+[ext_resource type="Script" uid="uid://cc4odf3a7asfu" path="res://script/blocks/gravity.gd" id="4_c2fee"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru32"]
 absorbent = true
@@ -22,6 +21,7 @@ gravity_scale = 0.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(-1, 1)
 script = ExtResource("1_ob237")
+block_type = "unique"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 5)
@@ -40,8 +40,5 @@ script = ExtResource("4_c2fee")
 
 [node name="Field" type="CollisionShape2D" parent="Gravity"]
 shape = SubResource("CircleShape2D_ot40m")
-
-[node name="BlockStateMachine" type="Node" parent="."]
-script = ExtResource("3_bacmu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
