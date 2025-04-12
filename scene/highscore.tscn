@@ -93,6 +93,13 @@ grow_horizontal = 2
 text = "Highscores"
 label_settings = SubResource("LabelSettings_md2a5")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 373.0
+offset_right = 1164.0
+offset_bottom = 713.0
+
 [node name="ScoreList" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8

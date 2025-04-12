@@ -3,7 +3,7 @@ extends Control
 @onready var score_list: VBoxContainer = $ScoreList
 
 var font = preload("res://assets/fonts/PixelOperator8.ttf")
-var font_color = Color("#222222")
+var font_color = Color("White")
 var font_size = 24
 var scores
 

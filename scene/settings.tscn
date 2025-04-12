@@ -1,0 +1,105 @@
+[gd_scene load_steps=18 format=3 uid="uid://cd06ipdugnjqf"]
+
+[ext_resource type="Script" uid="uid://bg8dyafa6mc2b" path="res://script/settings.gd" id="1_65vpt"]
+[ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="1_bdort"]
+[ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="2_h3kf0"]
+[ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="3_w6q7o"]
+[ext_resource type="Texture2D" uid="uid://8gqreqlskbfj" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" id="4_65vpt"]
+[ext_resource type="Shader" uid="uid://gsd38r8yu8bi" path="res://shader/scroll.gdshader" id="5_dmpxh"]
+[ext_resource type="Texture2D" uid="uid://dmokecqtro8ny" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="6_3ennp"]
+[ext_resource type="Shader" uid="uid://i5m1r21cjxs1" path="res://shader/scroll_slow.gdshader" id="7_d0yfb"]
+[ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="8_w7d3e"]
+[ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="9_qawrq"]
+[ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="10_h3kf0"]
+[ext_resource type="PackedScene" uid="uid://dw8e4230mty03" path="res://scene/input_settings.tscn" id="11_w6q7o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3kf0"]
+shader = ExtResource("2_h3kf0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6q7o"]
+shader = ExtResource("5_dmpxh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65vpt"]
+shader = ExtResource("7_d0yfb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmpxh"]
+shader = ExtResource("2_h3kf0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ennp"]
+font = ExtResource("10_h3kf0")
+font_size = 48
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_65vpt")
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="Background"]
+
+[node name="Mountains" type="Sprite2D" parent="Background/BackgroundLayer"]
+position = Vector2(960.5, 540)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("1_bdort")
+
+[node name="Clouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_h3kf0")
+position = Vector2(963, 545)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("3_w6q7o")
+
+[node name="Skybox" type="Sprite2D" parent="Background/BackgroundLayer"]
+z_index = -1
+position = Vector2(962, 542.5)
+scale = Vector2(5.0026, 5.02315)
+texture = ExtResource("4_65vpt")
+
+[node name="BackClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_w6q7o")
+position = Vector2(963, 542.5)
+scale = Vector2(5.00521, 4.98611)
+texture = ExtResource("6_3ennp")
+
+[node name="MidClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_65vpt")
+position = Vector2(961.5, 544.5)
+scale = Vector2(4.9974, 5.00463)
+texture = ExtResource("8_w7d3e")
+
+[node name="FrontClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_dmpxh")
+position = Vector2(964.75, 541.5)
+scale = Vector2(4.99609, 4.99537)
+texture = ExtResource("9_qawrq")
+
+[node name="LabelSettings" type="Label" parent="."]
+layout_mode = 0
+offset_left = 814.0
+offset_top = 124.0
+offset_right = 1126.0
+offset_bottom = 172.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_3ennp")
+
+[node name="InputSettings" parent="." instance=ExtResource("11_w6q7o")]
+layout_mode = 1
+
+[node name="Back" type="Button" parent="."]
+offset_left = 743.0
+offset_top = 940.0
+offset_right = 1176.0
+offset_bottom = 992.0
+theme_override_fonts/font = ExtResource("10_h3kf0")
+theme_override_font_sizes/font_size = 24
+text = "Back To Titlescreen"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
