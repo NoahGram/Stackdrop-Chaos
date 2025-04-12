@@ -8,5 +8,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
+	SaveManager.add_score(ScoreManager.total_score)
 	ScoreManager.total_score = 0
 	get_tree().call_deferred("reload_current_scene")

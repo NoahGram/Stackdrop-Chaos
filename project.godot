@@ -19,6 +19,7 @@ config/icon="res://assets/icon/Icon.webp"
 
 ScoreManager="*res://globals/score_manager.gd"
 BackgroundMusic="*res://globals/music/background_music.tscn"
+SaveManager="*res://data/SaveManager.gd"
 
 [display]
 

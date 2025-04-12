@@ -1,31 +1,31 @@
 [gd_scene load_steps=17 format=3 uid="uid://bfibwuhofi8od"]
 
-[ext_resource type="Script" uid="uid://w83kqbxbg4nk" path="res://script/titlescreen.gd" id="1_bkbvy"]
-[ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="2_ho2gf"]
-[ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="3_u4o5h"]
-[ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="3_vrmf4"]
-[ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="4_i7d8b"]
-[ext_resource type="Texture2D" uid="uid://8gqreqlskbfj" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" id="5_0odtj"]
-[ext_resource type="Shader" uid="uid://gsd38r8yu8bi" path="res://shader/scroll.gdshader" id="5_ho2gf"]
-[ext_resource type="Texture2D" uid="uid://dmokecqtro8ny" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="6_0odtj"]
-[ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="7_ojg6b"]
-[ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="8_gqf13"]
-[ext_resource type="Shader" uid="uid://i5m1r21cjxs1" path="res://shader/scroll_slow.gdshader" id="8_ojg6b"]
+[ext_resource type="Script" uid="uid://w83kqbxbg4nk" path="res://script/titlescreen.gd" id="1_vi6l8"]
+[ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="2_rmg7h"]
+[ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="3_xmbbb"]
+[ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="4_e0fa0"]
+[ext_resource type="Texture2D" uid="uid://8gqreqlskbfj" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" id="5_feoqi"]
+[ext_resource type="Shader" uid="uid://gsd38r8yu8bi" path="res://shader/scroll.gdshader" id="6_3qoos"]
+[ext_resource type="Texture2D" uid="uid://dmokecqtro8ny" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="7_uc3ii"]
+[ext_resource type="Shader" uid="uid://i5m1r21cjxs1" path="res://shader/scroll_slow.gdshader" id="8_xpal3"]
+[ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="9_k5u3u"]
+[ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="10_4benu"]
+[ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="11_ruxmo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gqf13"]
-shader = ExtResource("3_vrmf4")
+shader = ExtResource("3_xmbbb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c41j0"]
-shader = ExtResource("5_ho2gf")
+shader = ExtResource("6_3qoos")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gnn6u"]
-shader = ExtResource("8_ojg6b")
+shader = ExtResource("8_xpal3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ls5l"]
-shader = ExtResource("3_vrmf4")
+shader = ExtResource("3_xmbbb")
 
 [sub_resource type="LabelSettings" id="LabelSettings_t2njo"]
-font = ExtResource("3_u4o5h")
+font = ExtResource("11_ruxmo")
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
@@ -36,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bkbvy")
+script = ExtResource("1_vi6l8")
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -45,74 +45,41 @@ script = ExtResource("1_bkbvy")
 [node name="Mountains" type="Sprite2D" parent="Background/BackgroundLayer"]
 position = Vector2(960.5, 540)
 scale = Vector2(5.0026, 5)
-texture = ExtResource("2_ho2gf")
+texture = ExtResource("2_rmg7h")
 
 [node name="Clouds" type="Sprite2D" parent="Background/BackgroundLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_gqf13")
 position = Vector2(963, 545)
 scale = Vector2(5.0026, 5)
-texture = ExtResource("4_i7d8b")
+texture = ExtResource("4_e0fa0")
 
 [node name="Skybox" type="Sprite2D" parent="Background/BackgroundLayer"]
 z_index = -1
 position = Vector2(962, 542.5)
 scale = Vector2(5.0026, 5.02315)
-texture = ExtResource("5_0odtj")
+texture = ExtResource("5_feoqi")
 
 [node name="BackClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_c41j0")
 position = Vector2(963, 542.5)
 scale = Vector2(5.00521, 4.98611)
-texture = ExtResource("6_0odtj")
+texture = ExtResource("7_uc3ii")
 
 [node name="MidClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_gnn6u")
 position = Vector2(961.5, 544.5)
 scale = Vector2(4.9974, 5.00463)
-texture = ExtResource("7_ojg6b")
+texture = ExtResource("9_k5u3u")
 
 [node name="FrontClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_2ls5l")
 position = Vector2(964.75, 541.5)
 scale = Vector2(4.99609, 4.99537)
-texture = ExtResource("8_gqf13")
-
-[node name="Start" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.657
-anchor_right = 0.5
-anchor_bottom = 0.657
-offset_left = -88.0
-offset_top = -35.5599
-offset_right = 4.0
-offset_bottom = 16.4401
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.81723, 1.1356)
-theme_override_fonts/font = ExtResource("3_u4o5h")
-text = "Start"
-
-[node name="Exit" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.499
-anchor_top = 0.733
-anchor_right = 0.499
-anchor_bottom = 0.733
-offset_left = -110.08
-offset_top = -35.64
-offset_right = 109.92
-offset_bottom = 36.36
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_u4o5h")
-text = "Exit to Desktop"
+texture = ExtResource("10_4benu")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -130,5 +97,45 @@ label_settings = SubResource("LabelSettings_t2njo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = 40.0
+offset_right = 217.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("11_ruxmo")
+text = "Start"
+
+[node name="Highscores" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("11_ruxmo")
+text = "Highscores"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ruxmo")
+text = "Setting"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("11_ruxmo")
+text = "Exit to Desktop"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Highscores" to="." method="_on_highscores_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,16 +1,22 @@
 extends RigidBody2D
 
 @export var is_active: bool = false
+@export var block_type: String = "tetris"
+
 @onready var spawner: Node2D = get_parent()
+@onready var ground_level: float = get_node("/root/GameManager/Main/Platform").position.y
+@onready var score_label: Label = get_node("/root/GameManager/Main/ScoreLabel")
 
 const move_speed: int = 4
 const rotation_speed: float = 90
+
+var score: int = 0
 var block_has_stopped: bool = false  
+var current_state = BlockState.SPAWNING
 
 signal block_stopped  
 
 enum BlockState { SPAWNING, ACTIVE, FALLING, LANDED }
-var current_state = BlockState.SPAWNING
 
 @export var animation_player: AnimationPlayer
 
@@ -22,12 +28,6 @@ const BLOCK_SCORES = {
 	"acid": 0,
 }
 
-@export var block_type: String = "tetris"
-@onready var ground_level: float = get_node("/root/GameManager/Main/Platform").position.y
-
-var score: int = 0
-@onready var score_label: Label = get_node("/root/GameManager/Main/ScoreLabel")
-
 
 func _ready():
 	set_contact_monitor(true)
@@ -38,19 +38,16 @@ func change_state(new_state):
 	current_state = new_state
 	match current_state:
 		BlockState.SPAWNING:
-			print("STATE: SPAWNING")
 			freeze = true
 			change_state(BlockState.ACTIVE)
 
 		BlockState.ACTIVE:
-			print("STATE: ACTIVE")
+			pass
 
 		BlockState.FALLING:
-			print("STATE: FALLING")
 			freeze = false
 
 		BlockState.LANDED:
-			print("STATE: LANDED")
 			calculate_score()
 			await get_tree().create_timer(0.5).timeout
 			if animation_player:

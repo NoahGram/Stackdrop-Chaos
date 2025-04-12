@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://c62w2k0sreilp"]
+[gd_scene load_steps=7 format=3 uid="uid://c62w2k0sreilp"]
 
 [ext_resource type="Script" uid="uid://doeym2yedai6w" path="res://script/game_manager.gd" id="1_3c3go"]
 [ext_resource type="PackedScene" uid="uid://bchfsjsuqu7n2" path="res://scene/game.tscn" id="2_a81tu"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="3_a81tu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a81tu"]
+font = ExtResource("3_a81tu")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_8cna3"]
+font = ExtResource("3_a81tu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hy1te"]
+font = ExtResource("3_a81tu")
+font_size = 48
 
 [node name="GameManager" type="Node2D"]
 process_mode = 3
@@ -30,35 +41,78 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume" type="Button" parent="PauseScreen/Control/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/Control/Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.521
-anchor_top = 0.577
-anchor_right = 0.521
-anchor_bottom = 0.577
-offset_left = -85.3201
-offset_top = -27.16
-offset_right = 84.6799
-offset_bottom = 26.84
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -60.0
+offset_right = 186.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Resume" type="Button" parent="PauseScreen/Control/Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_a81tu")
 theme_override_font_sizes/font_size = 24
 text = "Resume"
 
-[node name="Quit" type="Button" parent="PauseScreen/Control/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.521
-anchor_top = 0.663
-anchor_right = 0.521
-anchor_bottom = 0.663
-offset_left = -85.3201
-offset_top = -27.04
-offset_right = 84.6799
-offset_bottom = 26.96
+[node name="BackToTitlescreen" type="Button" parent="PauseScreen/Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_a81tu")
+theme_override_font_sizes/font_size = 24
+text = "Back to Titlescreen"
+
+[node name="Quit" type="Button" parent="PauseScreen/Control/Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_a81tu")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
 
-[connection signal="pressed" from="PauseScreen/Control/Panel/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseScreen/Control/Panel/Quit" to="." method="_on_quit_pressed"]
+[node name="BackgroundMusicSlider" type="HSlider" parent="PauseScreen/Control/Panel"]
+layout_mode = 0
+offset_left = 876.0
+offset_top = 738.0
+offset_right = 1083.0
+offset_bottom = 795.0
+min_value = -80.0
+max_value = 0.0
+value = -20.0
+
+[node name="LabelAudio" type="Label" parent="PauseScreen/Control/Panel"]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 667.0
+offset_right = 1037.0
+offset_bottom = 699.0
+text = "Music"
+label_settings = SubResource("LabelSettings_a81tu")
+
+[node name="LabelBackgroundMusic" type="Label" parent="PauseScreen/Control/Panel"]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 724.0
+offset_right = 1085.0
+offset_bottom = 747.0
+text = "Background Music"
+label_settings = SubResource("LabelSettings_8cna3")
+
+[node name="LabelPause" type="Label" parent="PauseScreen/Control/Panel"]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 101.0
+offset_right = 1089.0
+offset_bottom = 149.0
+text = "Paused"
+label_settings = SubResource("LabelSettings_hy1te")
+
+[connection signal="pressed" from="PauseScreen/Control/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/Control/Panel/VBoxContainer/BackToTitlescreen" to="." method="_on_back_to_titlescreen_pressed"]
+[connection signal="pressed" from="PauseScreen/Control/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="PauseScreen/Control/Panel/BackgroundMusicSlider" to="." method="_on_background_music_value_changed"]

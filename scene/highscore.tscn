@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://dvb04dci26vka"]
+
+[ext_resource type="Script" uid="uid://dr2yqvqamfh10" path="res://script/highscore.gd" id="1_4jkwk"]
+[ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="1_oc5to"]
+[ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="2_md2a5"]
+[ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="3_4jkwk"]
+[ext_resource type="Texture2D" uid="uid://8gqreqlskbfj" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/sky_lightened.png" id="4_shhaw"]
+[ext_resource type="Shader" uid="uid://gsd38r8yu8bi" path="res://shader/scroll.gdshader" id="5_wh718"]
+[ext_resource type="Texture2D" uid="uid://dmokecqtro8ny" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="6_lp1r2"]
+[ext_resource type="Shader" uid="uid://i5m1r21cjxs1" path="res://shader/scroll_slow.gdshader" id="7_31wt8"]
+[ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="8_cirqa"]
+[ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="9_kpybo"]
+[ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="10_md2a5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0lbg"]
+shader = ExtResource("2_md2a5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hg0j8"]
+shader = ExtResource("5_wh718")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skv8o"]
+shader = ExtResource("7_31wt8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nd6xp"]
+shader = ExtResource("2_md2a5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_md2a5"]
+font = ExtResource("10_md2a5")
+font_size = 48
+
+[node name="Highscore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4jkwk")
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="Background"]
+
+[node name="Mountains" type="Sprite2D" parent="Background/BackgroundLayer"]
+position = Vector2(960.5, 540)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("1_oc5to")
+
+[node name="Clouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j0lbg")
+position = Vector2(963, 545)
+scale = Vector2(5.0026, 5)
+texture = ExtResource("3_4jkwk")
+
+[node name="Skybox" type="Sprite2D" parent="Background/BackgroundLayer"]
+z_index = -1
+position = Vector2(962, 542.5)
+scale = Vector2(5.0026, 5.02315)
+texture = ExtResource("4_shhaw")
+
+[node name="BackClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hg0j8")
+position = Vector2(963, 542.5)
+scale = Vector2(5.00521, 4.98611)
+texture = ExtResource("6_lp1r2")
+
+[node name="MidClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_skv8o")
+position = Vector2(961.5, 544.5)
+scale = Vector2(4.9974, 5.00463)
+texture = ExtResource("8_cirqa")
+
+[node name="FrontClouds" type="Sprite2D" parent="Background/BackgroundLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_nd6xp")
+position = Vector2(964.75, 541.5)
+scale = Vector2(4.99609, 4.99537)
+texture = ExtResource("9_kpybo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 96.0
+offset_right = 20.0
+offset_bottom = 119.0
+grow_horizontal = 2
+text = "Highscores"
+label_settings = SubResource("LabelSettings_md2a5")
+
+[node name="ScoreList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -133.0
+offset_right = 20.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="BackToTitlescreen" type="Button" parent="."]
+layout_mode = 0
+offset_left = 824.0
+offset_top = 934.0
+offset_right = 1096.0
+offset_bottom = 977.0
+theme_override_fonts/font = ExtResource("10_md2a5")
+text = "Back to Titlescreen"
+
+[node name="ClearSaveData" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1429.0
+offset_top = 96.0
+offset_right = 1731.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("10_md2a5")
+theme_override_font_sizes/font_size = 24
+text = "Clear Save-Data"
+
+[connection signal="pressed" from="BackToTitlescreen" to="." method="_on_back_to_titlescreen_pressed"]
+[connection signal="pressed" from="ClearSaveData" to="." method="_on_clear_save_data_pressed"]
