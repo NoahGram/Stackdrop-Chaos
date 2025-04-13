@@ -7,6 +7,7 @@ var font_color = Color("White")
 var font_size = 24
 var scores
 
+
 func _ready() -> void:
 	show_scores()
 

@@ -1,15 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c62w2k0sreilp"]
+[gd_scene load_steps=5 format=3 uid="uid://c62w2k0sreilp"]
 
 [ext_resource type="Script" uid="uid://doeym2yedai6w" path="res://script/game_manager.gd" id="1_3c3go"]
 [ext_resource type="PackedScene" uid="uid://bchfsjsuqu7n2" path="res://scene/game.tscn" id="2_a81tu"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="3_a81tu"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_a81tu"]
-font = ExtResource("3_a81tu")
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_8cna3"]
-font = ExtResource("3_a81tu")
 
 [sub_resource type="LabelSettings" id="LabelSettings_hy1te"]
 font = ExtResource("3_a81tu")
@@ -74,34 +67,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_a81tu")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
-
-[node name="BackgroundMusicSlider" type="HSlider" parent="PauseScreen/Control/Panel"]
-layout_mode = 0
-offset_left = 876.0
-offset_top = 738.0
-offset_right = 1083.0
-offset_bottom = 795.0
-min_value = -80.0
-max_value = 0.0
-value = -20.0
-
-[node name="LabelAudio" type="Label" parent="PauseScreen/Control/Panel"]
-layout_mode = 0
-offset_left = 897.0
-offset_top = 667.0
-offset_right = 1037.0
-offset_bottom = 699.0
-text = "Music"
-label_settings = SubResource("LabelSettings_a81tu")
-
-[node name="LabelBackgroundMusic" type="Label" parent="PauseScreen/Control/Panel"]
-layout_mode = 0
-offset_left = 867.0
-offset_top = 724.0
-offset_right = 1085.0
-offset_bottom = 747.0
-text = "Background Music"
-label_settings = SubResource("LabelSettings_8cna3")
 
 [node name="LabelPause" type="Label" parent="PauseScreen/Control/Panel"]
 layout_mode = 0
@@ -198,7 +163,6 @@ horizontal_alignment = 1
 [connection signal="pressed" from="PauseScreen/Control/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/Control/Panel/VBoxContainer/BackToTitlescreen" to="." method="_on_back_to_titlescreen_pressed"]
 [connection signal="pressed" from="PauseScreen/Control/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="value_changed" from="PauseScreen/Control/Panel/BackgroundMusicSlider" to="." method="_on_background_music_value_changed"]
 [connection signal="pressed" from="DeathScreen/Control/Panel/VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="DeathScreen/Control/Panel/VBoxContainer/BackToTitlescreen" to="." method="_on_back_to_titlescreen_pressed"]
 [connection signal="pressed" from="DeathScreen/Control/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

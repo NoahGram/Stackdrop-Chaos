@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cd06ipdugnjqf"]
 
-[ext_resource type="Script" uid="uid://bg8dyafa6mc2b" path="res://script/settings.gd" id="1_65vpt"]
+[ext_resource type="Script" uid="uid://bg8dyafa6mc2b" path="res://script/UI/settings.gd" id="1_65vpt"]
 [ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="1_bdort"]
 [ext_resource type="Shader" uid="uid://drhs576558g1w" path="res://shader/scroll_fast.gdshader" id="2_h3kf0"]
 [ext_resource type="Texture2D" uid="uid://d1o3yocebivvr" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="3_w6q7o"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ug41pv8651df" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="8_w7d3e"]
 [ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="9_qawrq"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="10_h3kf0"]
-[ext_resource type="PackedScene" uid="uid://dw8e4230mty03" path="res://scene/input_settings.tscn" id="11_w6q7o"]
+[ext_resource type="PackedScene" uid="uid://dw8e4230mty03" path="res://scene/UI/input_settings.tscn" id="11_w6q7o"]
 [ext_resource type="PackedScene" uid="uid://djclp1hf03xbu" path="res://scene/UI/sound_settings.tscn" id="13_dmpxh"]
 [ext_resource type="PackedScene" uid="uid://ctjc80nxk0eb3" path="res://scene/UI/display_settings.tscn" id="14_3ennp"]
 

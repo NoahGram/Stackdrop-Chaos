@@ -41,7 +41,6 @@ func _on_camera_increase(body: RigidBody2D) -> void:
 
 
 	if not body.is_active: 
-		print("Block Passing through")
 		await get_tree().create_timer(1).timeout # Object Falling Through Not Stopped
 		if not block_left:
 			print("Landed block detected - Moving camera up")

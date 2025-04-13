@@ -3,7 +3,7 @@ extends Control
 @onready var resolution_options: OptionButton = $PanelContainer/MarginContainer/VBoxContainer/ResolutionType/ResolutionOptionButton
 @onready var display_mode_options: OptionButton = $PanelContainer/MarginContainer/VBoxContainer/DisplayType/DisplayOptionButton
 @onready var monitor_selector: OptionButton = $PanelContainer/MarginContainer/VBoxContainer/MonitorType/MonitorOptionButton
-
+@onready var v_sync_toggle: CheckButton = $PanelContainer/MarginContainer/VBoxContainer/VSync/VSyncCheckButton
 
 
 var resolutions = {
@@ -21,17 +21,19 @@ func _ready() -> void:
 	populate_monitor_options()
 	resolution_options.disabled = true
 
-
-func _process(delta: float) -> void:
-	pass
+	if Settings.vsync_enabled:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		v_sync_toggle.button_pressed = true
+		
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		v_sync_toggle.button_pressed = false
 
 
 func _on_resolution_item_selected(index: int) -> void:
 	if resolutions.has(index):
 		var new_resolution = resolutions[index]
 		DisplayServer.window_set_size(new_resolution)
-
-
 
 func _on_display_item_selected(index: int) -> void:
 	match index:
@@ -72,5 +74,7 @@ func _on_monitor_item_selected(index: int) -> void:
 func _on_v_sync_toggled(checked: bool) -> void:
 	if checked:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		Settings.vsync_enabled = true 
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		Settings.vsync_enabled = false

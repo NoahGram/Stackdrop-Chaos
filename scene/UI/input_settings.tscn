@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dw8e4230mty03"]
 
-[ext_resource type="Script" uid="uid://cy43m5rmc6qqb" path="res://script/input_settings.gd" id="1_ll6f0"]
+[ext_resource type="Script" uid="uid://cy43m5rmc6qqb" path="res://script/UI/input_settings.gd" id="1_ll6f0"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="11_caeap"]
-[ext_resource type="PackedScene" uid="uid://c1xhifhywchs0" path="res://scene/input_button.tscn" id="12_kpbhj"]
+[ext_resource type="PackedScene" uid="uid://c1xhifhywchs0" path="res://scene/UI/input_button.tscn" id="12_kpbhj"]
 
 [node name="InputSettings" type="Control"]
 layout_mode = 3
