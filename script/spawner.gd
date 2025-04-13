@@ -68,13 +68,12 @@ func spawn_block():
 	if current_block is RigidBody2D:
 		current_block.position = spawn_position
 		add_child(current_block) 
-		print("Spawned new block!")
+		Sfx.block_spawned()
 		spawner_locked = true  
 		current_block.connect("block_stopped", Callable(self, "_on_block_stopped"))
 
 
 func _on_block_stopped():
-	print("Block Dropped - Spawning next block")
 	await get_tree().create_timer(1).timeout
 	spawner_locked = false
 	spawn_block()

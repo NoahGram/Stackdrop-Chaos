@@ -100,6 +100,7 @@ shape = SubResource("RectangleShape2D_a34vg")
 one_way_collision_margin = 10.0
 
 [node name="Camera" type="Camera2D" parent="Spawner"]
+process_mode = 3
 position = Vector2(0, 439)
 position_smoothing_enabled = true
 script = ExtResource("18_h4cgm")
@@ -228,7 +229,7 @@ position = Vector2(-0.499939, -18.5)
 shape = SubResource("RectangleShape2D_ueqyi")
 
 [node name="Deathzone" parent="." instance=ExtResource("22_r7kgp")]
-position = Vector2(1002, 1076)
+position = Vector2(1002, 1113)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]

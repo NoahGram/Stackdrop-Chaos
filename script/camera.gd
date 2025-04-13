@@ -10,6 +10,9 @@ extends Camera2D
 @onready var background_layer: ParallaxLayer = $Background/BackgroundLayer
 @onready var skybox: Sprite2D = $Background/BackgroundLayer/Skybox
 
+var shake_amount: float = 0.0
+var shake_decay: float = 5.0
+
 var block_left = false
 
 func _process(delta):
@@ -19,6 +22,15 @@ func _process(delta):
 	elif Input.is_action_pressed("ui_page_down"):
 		print("Down")
 		camera.position.y += 200 * delta
+		
+	if shake_amount > 0:
+		offset = Vector2(
+			randf_range(-1, 1),
+			randf_range(-1, 1)
+		) * shake_amount
+		shake_amount = max(shake_amount - shake_decay * delta, 0)
+	else:
+		offset = Vector2.ZERO
 
 
 func _on_camera_increase(body: RigidBody2D) -> void:
@@ -43,3 +55,7 @@ func _on_camera_increase(body: RigidBody2D) -> void:
 
 func _on_camera_decrease(body: Node2D) -> void:
 	block_left = true
+
+
+func start_shake(amount: float) -> void:
+	shake_amount = amount

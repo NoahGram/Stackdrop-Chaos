@@ -23,7 +23,6 @@ func _ready() -> void:
 
 
 func create_action_list():
-	InputMap.load_from_project_settings()
 	for item in action_list.get_children():
 		item.queue_free()
 		
@@ -82,4 +81,5 @@ func update_action_list(button, event):
 
 
 func _on_reset_pressed() -> void:
+	InputMap.load_from_project_settings()
 	create_action_list()

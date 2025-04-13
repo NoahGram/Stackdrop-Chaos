@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj0jjd1ej3whq"]
+
+[ext_resource type="Script" uid="uid://bmp6itnbl80jd" path="res://script/Sound/sfx.gd" id="1_1li1i"]
+[ext_resource type="AudioStream" uid="uid://f3om7aei4s73" path="res://assets/music/sfx/JDSherbert - Ultimate UI SFX Pack/Free/Stereo/mp3/JDSherbert - Ultimate UI SFX Pack - Error - 1.mp3" id="1_045tk"]
+[ext_resource type="AudioStream" uid="uid://cryss1pjmxhe0" path="res://assets/music/sfx/JDSherbert - Ultimate UI SFX Pack/Free/Stereo/mp3/JDSherbert - Ultimate UI SFX Pack - Select - 2.mp3" id="2_qdc3v"]
+[ext_resource type="AudioStream" uid="uid://dt4rixnbfejhc" path="res://assets/music/sfx/JDSherbert - Ultimate UI SFX Pack/Free/Stereo/mp3/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.mp3" id="3_sjr4h"]
+[ext_resource type="AudioStream" uid="uid://dg7y3678qfx46" path="res://assets/music/sfx/JDSherbert - Ultimate UI SFX Pack/Free/Stereo/mp3/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.mp3" id="4_1li1i"]
+
+[node name="SFX" type="Node"]
+script = ExtResource("1_1li1i")
+
+[node name="PauseOpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sjr4h")
+volume_db = -20.0
+
+[node name="PauseCloseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1li1i")
+volume_db = -20.0
+
+[node name="BlockLandedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_045tk")
+volume_db = -20.0
+
+[node name="BlockSpawnedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qdc3v")
+volume_db = -20.0

@@ -48,6 +48,7 @@ func change_state(new_state):
 			freeze = false
 
 		BlockState.LANDED:
+			Sfx.block_landed()
 			calculate_score()
 			await get_tree().create_timer(0.5).timeout
 			if animation_player:

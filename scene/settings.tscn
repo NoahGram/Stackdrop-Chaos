@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd06ipdugnjqf"]
+[gd_scene load_steps=20 format=3 uid="uid://cd06ipdugnjqf"]
 
 [ext_resource type="Script" uid="uid://bg8dyafa6mc2b" path="res://script/settings.gd" id="1_65vpt"]
 [ext_resource type="Texture2D" uid="uid://bgrfk3m55qu6c" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains.png" id="1_bdort"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://co6sj06bx8j65" path="res://assets/background/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1.png" id="9_qawrq"]
 [ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="10_h3kf0"]
 [ext_resource type="PackedScene" uid="uid://dw8e4230mty03" path="res://scene/input_settings.tscn" id="11_w6q7o"]
+[ext_resource type="PackedScene" uid="uid://djclp1hf03xbu" path="res://scene/UI/sound_settings.tscn" id="13_dmpxh"]
+[ext_resource type="PackedScene" uid="uid://ctjc80nxk0eb3" path="res://scene/UI/display_settings.tscn" id="14_3ennp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h3kf0"]
 shader = ExtResource("2_h3kf0")
@@ -36,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_65vpt")
 
 [node name="Background" type="ParallaxBackground" parent="."]
@@ -82,18 +85,78 @@ scale = Vector2(4.99609, 4.99537)
 texture = ExtResource("9_qawrq")
 
 [node name="LabelSettings" type="Label" parent="."]
-layout_mode = 0
-offset_left = 814.0
-offset_top = 124.0
-offset_right = 1126.0
-offset_bottom = 172.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.109
+anchor_right = 0.5
+anchor_bottom = 0.109
+offset_left = -156.0
+offset_top = -23.72
+offset_right = 156.0
+offset_bottom = 24.28
+grow_horizontal = 2
+grow_vertical = 2
 text = "Settings"
 label_settings = SubResource("LabelSettings_3ennp")
 
+[node name="Header" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Header"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -373.0
+offset_top = 198.0
+offset_right = 375.0
+offset_bottom = 243.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Header/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ButtonDisplaySettings" type="Button" parent="Header/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_h3kf0")
+theme_override_font_sizes/font_size = 36
+text = "Display"
+
+[node name="ButtonAudioSettings" type="Button" parent="Header/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_h3kf0")
+theme_override_font_sizes/font_size = 36
+text = "Audio"
+
+[node name="ButtonKeySettings" type="Button" parent="Header/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_h3kf0")
+theme_override_font_sizes/font_size = 36
+text = "Key-Bindings"
+
+[node name="DisplaySettings" parent="." instance=ExtResource("14_3ennp")]
+layout_mode = 1
+
+[node name="SoundSettings" parent="." instance=ExtResource("13_dmpxh")]
+visible = false
+layout_mode = 1
+
 [node name="InputSettings" parent="." instance=ExtResource("11_w6q7o")]
+visible = false
 layout_mode = 1
 
 [node name="Back" type="Button" parent="."]
+layout_mode = 0
 offset_left = 743.0
 offset_top = 940.0
 offset_right = 1176.0
@@ -102,4 +165,7 @@ theme_override_fonts/font = ExtResource("10_h3kf0")
 theme_override_font_sizes/font_size = 24
 text = "Back To Titlescreen"
 
+[connection signal="pressed" from="Header/PanelContainer/MarginContainer/HBoxContainer/ButtonDisplaySettings" to="." method="_on_button_display_settings_pressed"]
+[connection signal="pressed" from="Header/PanelContainer/MarginContainer/HBoxContainer/ButtonAudioSettings" to="." method="_on_button_audio_settings_pressed"]
+[connection signal="pressed" from="Header/PanelContainer/MarginContainer/HBoxContainer/ButtonKeySettings" to="." method="_on_button_key_settings_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

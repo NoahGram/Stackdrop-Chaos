@@ -1,0 +1,180 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctjc80nxk0eb3"]
+
+[ext_resource type="Script" uid="uid://cfxsikhy6xfya" path="res://script/UI/display_settings.gd" id="1_cxhhp"]
+[ext_resource type="FontFile" uid="uid://kc3lu3wqhvfu" path="res://assets/fonts/PixelOperator8.ttf" id="2_aun0h"]
+
+[node name="DisplaySettings" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxhhp")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.5
+offset_top = -238.0
+offset_right = 445.5
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 36
+text = "Display"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 36
+text = "{-----------------------}"
+horizontal_alignment = 1
+
+[node name="ResolutionType" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelResolutionType" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ResolutionType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 16
+text = "Resolution"
+
+[node name="Spacer" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ResolutionType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 12
+text = "Enabled if Display is Windowed"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/ResolutionType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+alignment = 1
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "640 x 480"
+popup/item_0/id = 0
+popup/item_1/text = "1152 x 648"
+popup/item_1/id = 1
+popup/item_2/text = "1600 x 900"
+popup/item_2/id = 2
+popup/item_3/text = "1920 x 1080"
+popup/item_3/id = 3
+popup/item_4/text = "3840 x 2160"
+popup/item_4/id = 4
+
+[node name="Spacer2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="DisplayType" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelDisplay" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/DisplayType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 16
+text = "Display"
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/DisplayType"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayOptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/DisplayType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+alignment = 1
+selected = 1
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+popup/item_3/text = "Exclusive Fullscreen"
+popup/item_3/id = 3
+
+[node name="Spacer3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="MonitorType" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelMonitor" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MonitorType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 16
+text = "Active Moniter"
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/MonitorType"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MonitorOptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/MonitorType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+alignment = 1
+
+[node name="Spacer4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="VSync" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelVSync" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VSync"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_aun0h")
+theme_override_font_sizes/font_size = 16
+text = "V-Sync"
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/VSync"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSyncCheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/VSync"]
+layout_mode = 2
+
+[connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/ResolutionType/ResolutionOptionButton" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/DisplayType/DisplayOptionButton" to="." method="_on_display_item_selected"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/MonitorType/MonitorOptionButton" to="." method="_on_monitor_item_selected"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/VSync/VSyncCheckButton" to="." method="_on_v_sync_toggled"]
